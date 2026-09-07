@@ -1,0 +1,2485 @@
+
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RODA KATA KVKV</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    padding:20px;
+    min-height:100vh;
+    font-family:"Comic Sans MS",cursive;
+    text-align:center;
+    background:linear-gradient(135deg,#dff6ff,#fff3d6,#e8ddff);
+}
+
+h1{
+    font-size:40px;
+    margin:10px 0;
+}
+
+h2{
+    font-size:30px;
+}
+
+button{
+    border:none;
+    border-radius:18px;
+    padding:15px 25px;
+    margin:8px;
+    font-family:"Comic Sans MS",cursive;
+    font-size:20px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:disabled{
+    opacity:.55;
+    cursor:not-allowed;
+}
+
+.screen{
+    display:none;
+}
+
+.box{
+    max-width:800px;
+    margin:20px auto;
+    padding:25px;
+    background:white;
+    border-radius:25px;
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+.menu{
+    max-width:500px;
+    margin:30px auto;
+}
+
+.menu button{
+    display:block;
+    width:100%;
+    margin:18px 0;
+    padding:20px;
+    font-size:25px;
+}
+
+.btn-pengajaran{background:#4caf50;color:white;}
+.btn-roda{background:#ff9800;color:white;}
+.btn-latihan{background:#2196f3;color:white;}
+.btn-kembali{background:#777;color:white;}
+.btn-mula{background:#9c27b0;color:white;}
+
+input{
+    width:90%;
+    max-width:450px;
+    padding:16px;
+    border:3px solid #ddd;
+    border-radius:15px;
+    font-family:inherit;
+    font-size:22px;
+    text-align:center;
+}
+
+/* =========================
+   PENGAJARAN
+========================= */
+
+.gambar-bbm{
+    width:180px;
+    height:150px;
+    object-fit:contain;
+    border-radius:15px;
+}
+
+.pilihan{
+    background:#e8f0ff;
+    min-width:80px;
+}
+
+.betul{
+    color:green;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.salah{
+    color:red;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.jawapan{
+    color:#008000;
+    font-size:30px;
+    font-weight:bold;
+}
+
+/* =========================
+   RODA
+========================= */
+
+.roda-container{
+    position:relative;
+    width:420px;
+    height:420px;
+    margin:35px auto;
+}
+
+.penunjuk{
+    position:absolute;
+    top:-35px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:58px;
+    color:red;
+    z-index:100;
+    text-shadow:2px 2px white,-2px -2px white;
+}
+
+#rodaBulatan{
+    position:relative;
+    width:400px;
+    height:400px;
+    margin:10px auto;
+    border-radius:50%;
+    border:8px solid white;
+    box-shadow:0 6px 25px rgba(0,0,0,.25);
+    overflow:hidden;
+
+    background:conic-gradient(
+        from -108deg,
+        #ff7675 0deg 36deg,
+        #74b9ff 36deg 72deg,
+        #55efc4 72deg 108deg,
+        #ffeaa7 108deg 144deg,
+        #a29bfe 144deg 180deg,
+        #fd79a8 180deg 216deg,
+        #81ecec 216deg 252deg,
+        #fab1a0 252deg 288deg,
+        #00cec9 288deg 324deg,
+        #fdcb6e 324deg 360deg
+    );
+
+    transition:transform 5s cubic-bezier(.12,.85,.18,1);
+}
+
+.garis{
+    position:absolute;
+    width:50%;
+    height:3px;
+    background:rgba(255,255,255,.9);
+    left:50%;
+    top:50%;
+    transform-origin:left center;
+    z-index:5;
+}
+
+.garis1{transform:rotate(-90deg);}
+.garis2{transform:rotate(-54deg);}
+.garis3{transform:rotate(-18deg);}
+.garis4{transform:rotate(18deg);}
+.garis5{transform:rotate(54deg);}
+.garis6{transform:rotate(90deg);}
+.garis7{transform:rotate(126deg);}
+.garis8{transform:rotate(162deg);}
+.garis9{transform:rotate(198deg);}
+.garis10{transform:rotate(234deg);}
+
+.gambar-roda{
+    position:absolute;
+    width:78px;
+    height:78px;
+    object-fit:contain;
+    background:white;
+    padding:5px;
+    border-radius:18px;
+    box-shadow:0 3px 10px rgba(0,0,0,.28);
+    left:50%;
+    top:50%;
+    z-index:10;
+    margin-left:var(--x);
+    margin-top:var(--y);
+    transform:translate(-50%,-50%) rotate(0deg);
+}
+
+.gambar1{--x:0px;--y:-145px;}
+.gambar2{--x:85px;--y:-118px;}
+.gambar3{--x:138px;--y:-45px;}
+.gambar4{--x:138px;--y:45px;}
+.gambar5{--x:85px;--y:118px;}
+.gambar6{--x:0px;--y:145px;}
+.gambar7{--x:-85px;--y:118px;}
+.gambar8{--x:-138px;--y:45px;}
+.gambar9{--x:-138px;--y:-45px;}
+.gambar10{--x:-85px;--y:-118px;}
+
+.tengah-roda{
+    position:absolute;
+    width:70px;
+    height:70px;
+    background:white;
+    border-radius:50%;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    z-index:50;
+    border:5px solid #555;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+}
+
+.butang-roda{
+    background:#ff9800;
+    color:white;
+    font-size:25px;
+}
+
+#gambarRoda{
+    width:180px;
+    height:150px;
+    object-fit:contain;
+    border-radius:15px;
+}
+
+#perkataanRoda{
+    font-size:35px;
+    font-weight:bold;
+}
+
+/* =========================
+   LATIHAN
+========================= */
+
+.game-card{
+    background:#f8fbff;
+    border-radius:20px;
+    padding:20px;
+    margin:15px 0;
+}
+
+.game-card button{
+    width:90%;
+    max-width:450px;
+}
+
+.gambar-game{
+    width:200px;
+    height:160px;
+    object-fit:contain;
+    border-radius:18px;
+    background:white;
+}
+
+.status-game{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+    font-size:23px;
+    font-weight:bold;
+    margin:15px;
+}
+
+.nyawa{
+    color:#e53935;
+}
+
+.skor{
+    color:#1976d2;
+}
+
+.progress{
+    color:#6a1b9a;
+}
+
+/* =========================
+   GAME 1
+========================= */
+
+.game1-soalan{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin:20px 0;
+    font-size:38px;
+    font-weight:bold;
+}
+
+.suku-tetap{
+    background:#c8e6c9;
+    border:4px solid #4caf50;
+    border-radius:18px;
+    padding:15px 25px;
+}
+
+.tanda-tambah{
+    font-size:35px;
+}
+
+.suku-tanya{
+    background:#fff3cd;
+    border:4px dashed #ff9800;
+    border-radius:18px;
+    padding:15px 30px;
+    min-width:100px;
+}
+
+.padanan-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:30px;
+    flex-wrap:wrap;
+    margin:25px 0;
+}
+
+.drop-zone{
+    width:180px;
+    min-height:90px;
+    border:4px dashed #2196f3;
+    border-radius:20px;
+    background:#e3f2fd;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.drag-item{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:90px;
+    min-height:70px;
+    padding:15px;
+    margin:8px;
+    background:#ffe082;
+    border-radius:18px;
+    font-size:28px;
+    font-weight:bold;
+    cursor:grab;
+    touch-action:none;
+}
+
+.drag-item:active{
+    cursor:grabbing;
+}
+
+/* =========================
+   GAME 2
+========================= */
+
+.pilihan-perkataan{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.kotak-jawapan{
+    width:250px;
+    min-height:80px;
+    margin:20px auto;
+    border:4px dashed #4caf50;
+    border-radius:20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    font-weight:bold;
+    background:#f1f8e9;
+}
+
+/* =========================
+   GAME 3
+========================= */
+
+.keyboard{
+    max-width:650px;
+    margin:20px auto;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.key{
+    width:55px;
+    height:55px;
+    margin:5px;
+    padding:0;
+    background:#90caf9;
+    font-size:25px;
+}
+
+.ejaan{
+    min-height:70px;
+    padding:15px;
+    margin:20px auto;
+    max-width:500px;
+    border-radius:18px;
+    border:4px solid #9c27b0;
+    font-size:35px;
+    font-weight:bold;
+    letter-spacing:8px;
+    background:#faf5ff;
+}
+
+/* =========================
+   MERCUN
+========================= */
+
+#fireworks{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:9999;
+    overflow:hidden;
+}
+
+.firework{
+    position:absolute;
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    animation:meletup 1.2s ease-out forwards;
+}
+
+@keyframes meletup{
+    0%{
+        transform:translate(0,0) scale(1);
+        opacity:1;
+    }
+
+    100%{
+        transform:translate(var(--tx),var(--ty)) scale(.15);
+        opacity:0;
+    }
+}
+
+.tahniah{
+    position:fixed;
+    left:50%;
+    top:45%;
+    transform:translate(-50%,-50%) scale(.5);
+    z-index:10000;
+    font-size:45px;
+    font-weight:bold;
+    color:#ff4081;
+    text-shadow:3px 3px white;
+    animation:tahniah 1s ease-out forwards;
+    pointer-events:none;
+}
+
+@keyframes tahniah{
+    0%{
+        transform:translate(-50%,-50%) scale(.3);
+        opacity:0;
+    }
+
+    50%{
+        transform:translate(-50%,-50%) scale(1.2);
+        opacity:1;
+    }
+
+    100%{
+        transform:translate(-50%,-50%) scale(1);
+        opacity:1;
+    }
+}
+
+/* =========================
+   TAMAT
+========================= */
+
+.keputusan{
+    font-size:28px;
+    font-weight:bold;
+    margin:20px;
+}
+
+@media(max-width:600px){
+
+    body{
+        padding:10px;
+    }
+
+    h1{
+        font-size:30px;
+    }
+
+    h2{
+        font-size:25px;
+    }
+
+    .roda-container{
+        width:340px;
+        height:340px;
+    }
+
+    #rodaBulatan{
+        width:320px;
+        height:320px;
+    }
+
+    .gambar-roda{
+        width:60px;
+        height:60px;
+    }
+
+    .gambar1{--y:-115px;}
+    .gambar2{--x:68px;--y:-94px;}
+    .gambar3{--x:108px;--y:-35px;}
+    .gambar4{--x:108px;--y:35px;}
+    .gambar5{--x:68px;--y:94px;}
+    .gambar6{--y:115px;}
+    .gambar7{--x:-68px;--y:94px;}
+    .gambar8{--x:-108px;--y:35px;}
+    .gambar9{--x:-108px;--y:-35px;}
+    .gambar10{--x:-68px;--y:-94px;}
+
+    .gambar-game{
+        width:170px;
+        height:140px;
+    }
+
+    .tahniah{
+        font-size:34px;
+    }
+
+    .key{
+        width:48px;
+        height:48px;
+        font-size:21px;
+    }
+
+    .game1-soalan{
+        font-size:30px;
+    }
+
+    .suku-tetap,
+    .suku-tanya{
+        padding:12px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="fireworks"></div>
+
+<!-- =========================
+     MENU UTAMA
+========================= -->
+
+<div id="utama">
+
+<h1>🎡 RODA KATA KVKV</h1>
+
+<div class="tagline">
+pusing • pilih • baca • bermain
+</div>
+
+<div class="menu">
+
+<button class="btn-pengajaran"
+onclick="bukaPengajaran()">
+📖 PENGAJARAN
+</button>
+
+<button class="btn-roda"
+onclick="bukaRoda()">
+🎡 MULA RODA KATA
+</button>
+
+<button class="btn-latihan"
+onclick="bukaLatihan()">
+🎮 LATIHAN
+</button>
+
+</div>
+</div>
+
+
+<!-- =========================
+     PENGAJARAN
+========================= -->
+
+<div id="pengajaran" class="screen">
+
+<div class="box">
+
+<h2>📖 JOM BELAJAR PERKATAAN KVKV</h2>
+
+<p>Lihat gambar dan pilih suku kata yang betul.</p>
+
+<img id="gambar"
+src="gambar/baju.jpg"
+class="gambar-bbm">
+
+<div id="soalanPertama">
+
+<h3>🎯 Pilih suku kata pertama</h3>
+
+<div id="pilihanPertama"></div>
+
+<p id="maklumBalasPertama"></p>
+
+</div>
+
+<div id="soalanKedua" style="display:none;">
+
+<h3>🎯 Pilih suku kata kedua</h3>
+
+<div id="pilihanKedua"></div>
+
+<p id="maklumBalasKedua"></p>
+
+</div>
+
+<div id="jawapanAkhir"
+class="jawapan"
+style="display:none;">
+</div>
+
+<button
+class="btn-mula"
+onclick="seterusnya()">
+▶️ SETERUSNYA
+</button>
+
+<br>
+
+<button
+class="btn-kembali"
+onclick="bukaUtama()">
+🏠 KEMBALI
+</button>
+
+</div>
+</div>
+
+
+<!-- =========================
+     RODA
+========================= -->
+
+<div id="roda" class="screen">
+
+<div class="box">
+
+<h2>🎡 RODA KATA KVKV</h2>
+
+<p>Pusing roda dan lihat perkataan yang dipilih!</p>
+
+<div class="roda-container">
+
+<div class="penunjuk">▼</div>
+
+<div id="rodaBulatan">
+
+<div class="garis garis1"></div>
+<div class="garis garis2"></div>
+<div class="garis garis3"></div>
+<div class="garis garis4"></div>
+<div class="garis garis5"></div>
+<div class="garis garis6"></div>
+<div class="garis garis7"></div>
+<div class="garis garis8"></div>
+<div class="garis garis9"></div>
+<div class="garis garis10"></div>
+
+<img src="gambar/baju.jpg" class="gambar-roda gambar1">
+<img src="gambar/batu.jpg" class="gambar-roda gambar2">
+<img src="gambar/bola.jpg" class="gambar-roda gambar3">
+<img src="gambar/buku.jpg" class="gambar-roda gambar4">
+<img src="gambar/gigi.jpg" class="gambar-roda gambar5">
+<img src="gambar/kaki.jpg" class="gambar-roda gambar6">
+<img src="gambar/kayu.jpg" class="gambar-roda gambar7">
+<img src="gambar/mata.jpg" class="gambar-roda gambar8">
+<img src="gambar/meja.jpg" class="gambar-roda gambar9">
+<img src="gambar/topi.jpg" class="gambar-roda gambar10">
+
+<div class="tengah-roda">🎡</div>
+
+</div>
+</div>
+
+<button
+id="butangPusing"
+class="butang-roda"
+onclick="pusingRoda()">
+🎡 PUSING RODA
+</button>
+
+<div id="hasilRoda">
+
+<p>🎉 RODA TELAH MEMILIH:</p>
+
+<img id="gambarRoda">
+
+<div id="perkataanRoda"></div>
+
+</div>
+
+<br>
+
+<button
+class="btn-kembali"
+onclick="bukaUtama()">
+🏠 KEMBALI
+</button>
+
+</div>
+</div>
+
+
+<!-- =========================
+     LATIHAN - NAMA MURID
+========================= -->
+
+<div id="latihan" class="screen">
+
+<div class="box">
+
+<h2>🎮 PUSAT LATIHAN KVKV</h2>
+
+<p>Masukkan nama murid sebelum bermain.</p>
+
+<input
+id="namaMurid"
+type="text"
+placeholder="Nama murid">
+
+<br><br>
+
+<button
+class="btn-mula"
+onclick="mulaLatihan()">
+🚀 MULA BERMAIN
+</button>
+
+<br>
+
+<button
+class="btn-kembali"
+onclick="bukaUtama()">
+🏠 KEMBALI
+</button>
+
+</div>
+</div>
+
+
+<!-- =========================
+     PILIH GAME
+========================= -->
+
+<div id="pilihGame" class="screen">
+
+<div class="box">
+
+<h2>🎮 PILIH PERMAINAN</h2>
+
+<p id="paparNama"></p>
+
+<div class="game-card">
+
+<button
+class="btn-mula"
+onclick="mulaGame(1)">
+🎯 CARI PASANGAN
+</button>
+
+<p>Lengkapkan suku kata yang hilang.</p>
+
+</div>
+
+<div class="game-card">
+
+<button
+class="btn-mula"
+onclick="mulaGame(2)">
+🔎 MANA KAWAN SAYA?
+</button>
+
+<p>Cari perkataan yang betul untuk gambar.</p>
+
+</div>
+
+<div class="game-card">
+
+<button
+class="btn-mula"
+onclick="mulaGame(3)">
+⌨️ JOM EJA!
+</button>
+
+<p>Eja perkataan menggunakan keyboard.</p>
+
+</div>
+
+<br>
+
+<button
+class="btn-kembali"
+onclick="bukaUtama()">
+🏠 MENU UTAMA
+</button>
+
+</div>
+</div>
+
+
+<!-- =========================
+     GAME 1
+========================= -->
+
+<div id="game1" class="screen">
+
+<div class="box">
+
+<h2>🎯 CARI PASANGAN</h2>
+
+<div class="status-game">
+
+<div class="skor">
+⭐ Skor: <span id="skor1">0</span>
+</div>
+
+<div class="nyawa">
+❤️ <span id="nyawa1">3</span>
+</div>
+
+<div class="progress">
+📚 <span id="soalan1">1</span>/10
+</div>
+
+</div>
+
+<img
+id="gambarGame1"
+class="gambar-game">
+
+<h3>🖐️ Lengkapkan perkataan</h3>
+
+<div class="game1-soalan">
+
+<div id="sukuTetap1"
+class="suku-tetap">
+ba
+</div>
+
+<div class="tanda-tambah">
++
+</div>
+
+<div class="suku-tanya">
+?
+</div>
+
+</div>
+
+<h3>Seret suku kata yang betul ke kotak ?</h3>
+
+<div class="padanan-container">
+
+<div
+id="drop1"
+class="drop-zone"
+ondragover="event.preventDefault()"
+ondrop="dropSuku(event)">
+?
+</div>
+
+<div id="pilihanSuku1"></div>
+
+</div>
+
+<p id="maklum1"></p>
+
+<button
+class="btn-kembali"
+onclick="bukaPilihGame()">
+↩️ PILIH GAME
+</button>
+
+</div>
+</div>
+
+
+<!-- =========================
+     GAME 2
+========================= -->
+
+<div id="game2" class="screen">
+
+<div class="box">
+
+<h2>🔎 MANA KAWAN SAYA?</h2>
+
+<div class="status-game">
+
+<div class="skor">
+⭐ Skor: <span id="skor2">0</span>
+</div>
+
+<div class="nyawa">
+❤️ <span id="nyawa2">3</span>
+</div>
+
+<div class="progress">
+📚 <span id="soalan2">1</span>/10
+</div>
+
+</div>
+
+<img
+id="gambarGame2"
+class="gambar-game">
+
+<h3>🖐️ Seret perkataan yang menjadi kawan gambar</h3>
+
+<div
+id="kotakJawapan2"
+class="kotak-jawapan"
+ondragover="event.preventDefault()"
+ondrop="dropPerkataan(event)">
+?
+</div>
+
+<div
+id="pilihanPerkataan2"
+class="pilihan-perkataan">
+</div>
+
+<p id="maklum2"></p>
+
+<button
+class="btn-kembali"
+onclick="bukaPilihGame()">
+↩️ PILIH GAME
+</button>
+
+</div>
+</div>
+
+
+<!-- =========================
+     GAME 3
+========================= -->
+
+<div id="game3" class="screen">
+
+<div class="box">
+
+<h2>⌨️ JOM EJA!</h2>
+
+<div class="status-game">
+
+<div class="skor">
+⭐ Skor: <span id="skor3">0</span>
+</div>
+
+<div class="nyawa">
+❤️ <span id="nyawa3">3</span>
+</div>
+
+<div class="progress">
+📚 <span id="soalan3">1</span>/10
+</div>
+
+</div>
+
+<img
+id="gambarGame3"
+class="gambar-game">
+
+<h3>⌨️ Tekan huruf untuk mengeja</h3>
+
+<div
+id="ejaan3"
+class="ejaan">
+</div>
+
+<div
+id="keyboard3"
+class="keyboard">
+</div>
+
+<p id="maklum3"></p>
+
+<button
+class="btn-kembali"
+onclick="bukaPilihGame()">
+↩️ PILIH GAME
+</button>
+
+</div>
+</div>
+
+
+<!-- =========================
+     TAMAT
+========================= -->
+
+<div id="tamat" class="screen">
+
+<div class="box">
+
+<h2>🏆 TAHNIAH!</h2>
+
+<p id="namaTamat"></p>
+
+<div class="keputusan">
+
+⭐ Jumlah Skor
+
+<br>
+
+<span id="skorTamat"></span>
+
+</div>
+
+<p>🎉 Syabas! Anda telah selesai bermain!</p>
+
+<button
+class="btn-mula"
+onclick="bukaPilihGame()">
+🎮 MAIN LAGI
+</button>
+
+<button
+class="btn-kembali"
+onclick="bukaUtama()">
+🏠 MENU UTAMA
+</button>
+
+</div>
+</div>
+
+
+<script>
+
+/* =====================================================
+   DATA KVKV
+===================================================== */
+
+const bahan = [
+
+{
+gambar:"gambar/baju.jpg",
+perkataan:"baju",
+suku1:"ba",
+suku2:"ju"
+},
+
+{
+gambar:"gambar/batu.jpg",
+perkataan:"batu",
+suku1:"ba",
+suku2:"tu"
+},
+
+{
+gambar:"gambar/bola.jpg",
+perkataan:"bola",
+suku1:"bo",
+suku2:"la"
+},
+
+{
+gambar:"gambar/buku.jpg",
+perkataan:"buku",
+suku1:"bu",
+suku2:"ku"
+},
+
+{
+gambar:"gambar/gigi.jpg",
+perkataan:"gigi",
+suku1:"gi",
+suku2:"gi"
+},
+
+{
+gambar:"gambar/kaki.jpg",
+perkataan:"kaki",
+suku1:"ka",
+suku2:"ki"
+},
+
+{
+gambar:"gambar/kayu.jpg",
+perkataan:"kayu",
+suku1:"ka",
+suku2:"yu"
+},
+
+{
+gambar:"gambar/mata.jpg",
+perkataan:"mata",
+suku1:"ma",
+suku2:"ta"
+},
+
+{
+gambar:"gambar/meja.jpg",
+perkataan:"meja",
+suku1:"me",
+suku2:"ja"
+},
+
+{
+gambar:"gambar/topi.jpg",
+perkataan:"topi",
+suku1:"to",
+suku2:"pi"
+}
+
+];
+
+
+/* =====================================================
+   PEMBOLEH UBAH
+===================================================== */
+
+let nombor = 0;
+let putaranSemasa = 0;
+let sedangBerpusing = false;
+
+let namaMurid = "";
+
+let gameSemasa = 0;
+let indeksGame = 0;
+
+let skor1 = 0;
+let skor2 = 0;
+let skor3 = 0;
+
+let nyawa1 = 3;
+let nyawa2 = 3;
+let nyawa3 = 3;
+
+let urutanGame = [];
+
+
+/* =====================================================
+   AUDIO
+===================================================== */
+
+let audioContext;
+
+function mulaAudio(){
+
+    if(!audioContext){
+
+        audioContext =
+        new (window.AudioContext ||
+        window.webkitAudioContext)();
+
+    }
+
+    if(audioContext.state === "suspended"){
+        audioContext.resume();
+    }
+}
+
+
+function bunyiBetul(){
+
+    mulaAudio();
+
+    const now =
+    audioContext.currentTime;
+
+    [523,659,784,1046].forEach(
+    (freq,i)=>{
+
+        const osc =
+        audioContext.createOscillator();
+
+        const gain =
+        audioContext.createGain();
+
+        osc.frequency.value = freq;
+        osc.type = "sine";
+
+        gain.gain.setValueAtTime(
+            0,
+            now + i*.12
+        );
+
+        gain.gain.linearRampToValueAtTime(
+            .25,
+            now + i*.12 + .03
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            .001,
+            now + i*.12 + .25
+        );
+
+        osc.connect(gain);
+        gain.connect(audioContext.destination);
+
+        osc.start(now+i*.12);
+        osc.stop(now+i*.12+.3);
+
+    });
+
+}
+
+
+function bunyiSalah(){
+
+    mulaAudio();
+
+    const osc =
+    audioContext.createOscillator();
+
+    const gain =
+    audioContext.createGain();
+
+    osc.type = "sawtooth";
+    osc.frequency.value = 180;
+
+    gain.gain.setValueAtTime(
+        .25,
+        audioContext.currentTime
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+        .001,
+        audioContext.currentTime+.45
+    );
+
+    osc.connect(gain);
+    gain.connect(audioContext.destination);
+
+    osc.start();
+    osc.stop(audioContext.currentTime+.45);
+
+}
+
+
+/* =====================================================
+   MERCUN
+===================================================== */
+
+function mercun(){
+
+    bunyiBetul();
+
+    const container =
+    document.getElementById("fireworks");
+
+    container.innerHTML = "";
+
+    const x =
+    Math.random()*80+10;
+
+    const y =
+    Math.random()*45+15;
+
+    for(let i=0;i<35;i++){
+
+        const p =
+        document.createElement("div");
+
+        p.className="firework";
+
+        p.style.left=x+"%";
+        p.style.top=y+"%";
+
+        const angle =
+        Math.random()*Math.PI*2;
+
+        const distance =
+        60+Math.random()*150;
+
+        p.style.setProperty(
+            "--tx",
+            Math.cos(angle)*distance+"px"
+        );
+
+        p.style.setProperty(
+            "--ty",
+            Math.sin(angle)*distance+"px"
+        );
+
+        p.style.background =
+        ["#ff1744",
+         "#ffeb3b",
+         "#00e5ff",
+         "#76ff03",
+         "#e040fb",
+         "#ff9100"]
+        [Math.floor(Math.random()*6)];
+
+        container.appendChild(p);
+    }
+
+    const teks =
+    document.createElement("div");
+
+    teks.className="tahniah";
+    teks.innerHTML="🎉 BETUL! HEBAT! 🎉";
+
+    container.appendChild(teks);
+
+    setTimeout(()=>{
+        container.innerHTML="";
+    },1500);
+}
+
+
+/* =====================================================
+   PAPAR SKRIN
+===================================================== */
+
+function tutupSemua(){
+
+    document
+    .querySelectorAll(".screen")
+    .forEach(
+        s=>s.style.display="none"
+    );
+
+    document.getElementById("utama")
+    .style.display="none";
+}
+
+
+function bukaUtama(){
+
+    tutupSemua();
+
+    document.getElementById("utama")
+    .style.display="block";
+}
+
+
+function bukaPengajaran(){
+
+    tutupSemua();
+
+    document.getElementById("pengajaran")
+    .style.display="block";
+
+    nombor=0;
+
+    paparAktiviti();
+}
+
+
+function bukaRoda(){
+
+    tutupSemua();
+
+    document.getElementById("roda")
+    .style.display="block";
+
+    document.getElementById("hasilRoda")
+    .style.display="none";
+}
+
+
+function bukaLatihan(){
+
+    tutupSemua();
+
+    document.getElementById("latihan")
+    .style.display="block";
+}
+
+
+function bukaPilihGame(){
+
+    tutupSemua();
+
+    document.getElementById("pilihGame")
+    .style.display="block";
+
+    document.getElementById("paparNama")
+    .innerHTML =
+    "👤 Murid: <b>"+
+    namaMurid+
+    "</b>";
+}
+
+
+/* =====================================================
+   RODA
+===================================================== */
+
+function pusingRoda(){
+
+    if(sedangBerpusing) return;
+
+    sedangBerpusing=true;
+
+    document.getElementById(
+        "butangPusing"
+    ).disabled=true;
+
+    const roda =
+    document.getElementById(
+        "rodaBulatan"
+    );
+
+    const pilihan =
+    Math.floor(
+        Math.random()*bahan.length
+    );
+
+    const saizSektor=36;
+
+    const sudutGambar =
+    -90+(pilihan*saizSektor);
+
+    const sudutPenunjuk=-90;
+
+    const sudutSasaran =
+    sudutPenunjuk-sudutGambar;
+
+    const sudutSemasa =
+    putaranSemasa%360;
+
+    let beza =
+    sudutSasaran-sudutSemasa;
+
+    if(beza<0) beza+=360;
+
+    const putaran =
+    360*5+beza;
+
+    putaranSemasa+=putaran;
+
+    roda.style.transform =
+    "rotate("+putaranSemasa+"deg)";
+
+    document
+    .querySelectorAll(".gambar-roda")
+    .forEach(
+        gambar=>{
+
+            gambar.style.transform=
+            "translate(-50%,-50%) rotate("+
+            (-putaranSemasa)+
+            "deg)";
+
+        }
+    );
+
+    document.getElementById(
+        "hasilRoda"
+    ).style.display="none";
+
+    setTimeout(()=>{
+
+        document.getElementById(
+            "gambarRoda"
+        ).src=bahan[pilihan].gambar;
+
+        document.getElementById(
+            "perkataanRoda"
+        ).innerHTML=
+        "✨ "+
+        bahan[pilihan].perkataan+
+        " ✨";
+
+        document.getElementById(
+            "hasilRoda"
+        ).style.display="block";
+
+        sedangBerpusing=false;
+
+        document.getElementById(
+            "butangPusing"
+        ).disabled=false;
+
+    },5000);
+}
+
+
+/* =====================================================
+   PENGAJARAN
+===================================================== */
+
+function paparAktiviti(){
+
+    const item=bahan[nombor];
+
+    document.getElementById(
+        "gambar"
+    ).src=item.gambar;
+
+    document.getElementById(
+        "soalanPertama"
+    ).style.display="block";
+
+    document.getElementById(
+        "soalanKedua"
+    ).style.display="none";
+
+    document.getElementById(
+        "jawapanAkhir"
+    ).style.display="none";
+
+    document.getElementById(
+        "maklumBalasPertama"
+    ).innerHTML="";
+
+    document.getElementById(
+        "maklumBalasKedua"
+    ).innerHTML="";
+
+    buatPilihanPertama(item);
+}
+
+
+function buatPilihanPertama(item){
+
+    const ruang =
+    document.getElementById(
+        "pilihanPertama"
+    );
+
+    ruang.innerHTML="";
+
+    // Pilihan pertama semuanya suku kata KV
+    let pilihan = [
+        item.suku1
+    ];
+
+    const semuaSukuKata = [
+        "ba","be","bi","bo","bu",
+        "ca","ce","ci","co","cu",
+        "da","de","di","do","du",
+        "ga","ge","gi","go","gu",
+        "ha","he","hi","ho","hu",
+        "ja","je","ji","jo","ju",
+        "ka","ke","ki","ko","ku",
+        "la","le","li","lo","lu",
+        "ma","me","mi","mo","mu",
+        "na","ne","ni","no","nu",
+        "pa","pe","pi","po","pu",
+        "ra","re","ri","ro","ru",
+        "sa","se","si","so","su",
+        "ta","te","ti","to","tu",
+        "wa","we","wi","wo","wu",
+        "ya","ye","yi","yo","yu"
+    ];
+
+    while(pilihan.length < 3){
+
+        const rawak =
+        semuaSukuKata[
+            Math.floor(
+                Math.random() *
+                semuaSukuKata.length
+            )
+        ];
+
+        if(!pilihan.includes(rawak)){
+            pilihan.push(rawak);
+        }
+    }
+
+    pilihan.sort(
+        ()=>Math.random()-.5
+    );
+
+    pilihan.forEach(suku=>{
+
+        const b =
+        document.createElement("button");
+
+        b.className="pilihan";
+
+        b.innerHTML=suku.toLowerCase();
+
+        b.onclick=()=>{
+            semakPertama(suku);
+        };
+
+        ruang.appendChild(b);
+
+    });
+}
+
+
+function semakPertama(jawapan){
+
+    const item=bahan[nombor];
+
+    if(jawapan===item.suku1){
+
+        document.getElementById(
+            "maklumBalasPertama"
+        ).innerHTML="🎉 Betul! Hebat!";
+
+        document.getElementById(
+            "maklumBalasPertama"
+        ).className="betul";
+
+        document.getElementById(
+            "soalanKedua"
+        ).style.display="block";
+
+        buatPilihanKedua(item);
+
+    }else{
+
+        document.getElementById(
+            "maklumBalasPertama"
+        ).innerHTML="❌ Cuba lagi!";
+
+        document.getElementById(
+            "maklumBalasPertama"
+        ).className="salah";
+
+    }
+}
+
+
+/* =====================================================
+   PENGAJARAN - PILIHAN KEDUA
+   SEMUA PILIHAN ADALAH SUKU KATA KV
+===================================================== */
+
+function buatPilihanKedua(item){
+
+    const ruang =
+    document.getElementById(
+        "pilihanKedua"
+    );
+
+    ruang.innerHTML="";
+
+    const semuaSukuKata = [
+
+        "ba","be","bi","bo","bu",
+
+        "ca","ce","ci","co","cu",
+
+        "da","de","di","do","du",
+
+        "fa","fe","fi","fo","fu",
+
+        "ga","ge","gi","go","gu",
+
+        "ha","he","hi","ho","hu",
+
+        "ja","je","ji","jo","ju",
+
+        "ka","ke","ki","ko","ku",
+
+        "la","le","li","lo","lu",
+
+        "ma","me","mi","mo","mu",
+
+        "na","ne","ni","no","nu",
+
+        "pa","pe","pi","po","pu",
+
+        "ra","re","ri","ro","ru",
+
+        "sa","se","si","so","su",
+
+        "ta","te","ti","to","tu",
+
+        "wa","we","wi","wo","wu",
+
+        "ya","ye","yi","yo","yu"
+
+    ];
+
+    let pilihan = [
+        item.suku2
+    ];
+
+    // Pastikan 2 pilihan salah
+    while(pilihan.length < 3){
+
+        const rawak =
+        semuaSukuKata[
+            Math.floor(
+                Math.random() *
+                semuaSukuKata.length
+            )
+        ];
+
+        if(
+            !pilihan.includes(rawak)
+        ){
+
+            pilihan.push(rawak);
+
+        }
+
+    }
+
+    // Rawakkan kedudukan
+    pilihan.sort(
+        ()=>Math.random()-.5
+    );
+
+    pilihan.forEach(suku=>{
+
+        const b =
+        document.createElement("button");
+
+        b.className="pilihan";
+
+        b.innerHTML=suku.toLowerCase();
+
+        b.onclick=()=>{
+            semakKedua(suku);
+        };
+
+        ruang.appendChild(b);
+
+    });
+}
+
+
+function semakKedua(jawapan){
+
+    const item=bahan[nombor];
+
+    if(jawapan===item.suku2){
+
+        document.getElementById(
+            "maklumBalasKedua"
+        ).innerHTML="🎉 Betul! Hebat!";
+
+        document.getElementById(
+            "maklumBalasKedua"
+        ).className="betul";
+
+        document.getElementById(
+            "jawapanAkhir"
+        ).innerHTML=
+        "✨ "+
+        item.suku1+
+        " + "+
+        item.suku2+
+        " = "+
+        item.perkataan+
+        " ✨";
+
+        document.getElementById(
+            "jawapanAkhir"
+        ).style.display="block";
+
+    }else{
+
+        document.getElementById(
+            "maklumBalasKedua"
+        ).innerHTML="❌ Cuba lagi!";
+
+        document.getElementById(
+            "maklumBalasKedua"
+        ).className="salah";
+
+    }
+}
+
+
+function seterusnya(){
+
+    nombor++;
+
+    if(nombor>=bahan.length){
+        nombor=0;
+    }
+
+    paparAktiviti();
+}
+
+
+/* =====================================================
+   MULA LATIHAN
+===================================================== */
+
+function mulaLatihan(){
+
+    const nama =
+    document.getElementById(
+        "namaMurid"
+    ).value.trim();
+
+    if(!nama){
+
+        alert(
+            "Sila masukkan nama murid dahulu."
+        );
+
+        return;
+    }
+
+    namaMurid=nama;
+
+    bukaPilihGame();
+}
+
+
+/* =====================================================
+   MULA GAME
+===================================================== */
+
+function mulaGame(game){
+
+    tutupSemua();
+
+    mulaAudio();
+
+    gameSemasa=game;
+
+    indeksGame=0;
+
+    urutanGame=
+    [...Array(bahan.length).keys()]
+    .sort(()=>Math.random()-.5);
+
+    if(game===1){
+
+        skor1=0;
+        nyawa1=3;
+
+        document.getElementById(
+            "game1"
+        ).style.display="block";
+
+        paparGame1();
+
+    }
+
+    if(game===2){
+
+        skor2=0;
+        nyawa2=3;
+
+        document.getElementById(
+            "game2"
+        ).style.display="block";
+
+        paparGame2();
+
+    }
+
+    if(game===3){
+
+        skor3=0;
+        nyawa3=3;
+
+        document.getElementById(
+            "game3"
+        ).style.display="block";
+
+        paparGame3();
+
+    }
+}
+
+
+/* =====================================================
+   GAME 1
+===================================================== */
+
+function paparGame1(){
+
+    if(indeksGame>=10){
+
+        tamatGame(1);
+
+        return;
+    }
+
+    const item=
+    bahan[urutanGame[indeksGame]];
+
+    document.getElementById(
+        "gambarGame1"
+    ).src=item.gambar;
+
+    // Paparkan suku kata pertama
+    document.getElementById(
+        "sukuTetap1"
+    ).innerHTML=
+    item.suku1.toLowerCase();
+
+    document.getElementById(
+        "soalan1"
+    ).innerHTML=indeksGame+1;
+
+    document.getElementById(
+        "skor1"
+    ).innerHTML=skor1;
+
+    document.getElementById(
+        "nyawa1"
+    ).innerHTML=nyawa1;
+
+    document.getElementById(
+        "maklum1"
+    ).innerHTML="";
+
+    document.getElementById(
+        "drop1"
+    ).innerHTML="?";
+
+    /*
+       Game 1:
+       Gambar
+       ba + ?
+       Murid seret suku kata kedua.
+    */
+
+    const semuaSukuKata = [
+
+        "ba","be","bi","bo","bu",
+        "ca","ce","ci","co","cu",
+        "da","de","di","do","du",
+        "ga","ge","gi","go","gu",
+        "ha","he","hi","ho","hu",
+        "ja","je","ji","jo","ju",
+        "ka","ke","ki","ko","ku",
+        "la","le","li","lo","lu",
+        "ma","me","mi","mo","mu",
+        "na","ne","ni","no","nu",
+        "pa","pe","pi","po","pu",
+        "ra","re","ri","ro","ru",
+        "sa","se","si","so","su",
+        "ta","te","ti","to","tu",
+        "wa","we","wi","wo","wu",
+        "ya","ye","yi","yo","yu"
+
+    ];
+
+    let pilihan = [
+        item.suku2
+    ];
+
+    while(pilihan.length < 3){
+
+        const rawak =
+        semuaSukuKata[
+            Math.floor(
+                Math.random() *
+                semuaSukuKata.length
+            )
+        ];
+
+        if(
+            !pilihan.includes(rawak)
+        ){
+
+            pilihan.push(rawak);
+
+        }
+
+    }
+
+    pilihan.sort(
+        ()=>Math.random()-.5
+    );
+
+    const ruang=
+    document.getElementById(
+        "pilihanSuku1"
+    );
+
+    ruang.innerHTML="";
+
+    pilihan.forEach(suku=>{
+
+        const b=
+        document.createElement("div");
+
+        b.className="drag-item";
+
+        b.innerHTML=
+        suku.toLowerCase();
+
+        b.draggable=true;
+
+        b.ondragstart=
+        e=>{
+
+            e.dataTransfer.setData(
+                "text/plain",
+                suku
+            );
+
+        };
+
+        ruang.appendChild(b);
+
+    });
+}
+
+
+function dropSuku(event){
+
+    event.preventDefault();
+
+    const jawapan=
+    event.dataTransfer.getData(
+        "text/plain"
+    );
+
+    semakGame1(jawapan);
+}
+
+
+function semakGame1(jawapan){
+
+    const item=
+    bahan[urutanGame[indeksGame]];
+
+    if(jawapan===item.suku2){
+
+        skor1+=10;
+
+        document.getElementById(
+            "drop1"
+        ).innerHTML=
+        item.suku2;
+
+        document.getElementById(
+            "maklum1"
+        ).innerHTML=
+        "🎉 Betul! +10 mata";
+
+        mercun();
+
+        setTimeout(()=>{
+
+            indeksGame++;
+
+            paparGame1();
+
+        },1300);
+
+    }else{
+
+        nyawa1--;
+
+        document.getElementById(
+            "nyawa1"
+        ).innerHTML=nyawa1;
+
+        document.getElementById(
+            "maklum1"
+        ).innerHTML=
+        "❌ Salah! Cuba lagi.";
+
+        bunyiSalah();
+
+        if(nyawa1<=0){
+
+            setTimeout(
+                ()=>tamatGame(1),
+                800
+            );
+
+        }
+
+    }
+}
+
+
+/* =====================================================
+   GAME 2
+===================================================== */
+
+function paparGame2(){
+
+    if(indeksGame>=10){
+
+        tamatGame(2);
+
+        return;
+    }
+
+    const item=
+    bahan[urutanGame[indeksGame]];
+
+    document.getElementById(
+        "gambarGame2"
+    ).src=item.gambar;
+
+    document.getElementById(
+        "soalan2"
+    ).innerHTML=indeksGame+1;
+
+    document.getElementById(
+        "skor2"
+    ).innerHTML=skor2;
+
+    document.getElementById(
+        "nyawa2"
+    ).innerHTML=nyawa2;
+
+    document.getElementById(
+        "maklum2"
+    ).innerHTML="";
+
+    document.getElementById(
+        "kotakJawapan2"
+    ).innerHTML="?";
+
+    let pilihan=[
+        item.perkataan
+    ];
+
+    while(pilihan.length<3){
+
+        const rawak =
+        bahan[
+            Math.floor(
+                Math.random() *
+                bahan.length
+            )
+        ].perkataan;
+
+        if(
+            !pilihan.includes(rawak)
+        ){
+
+            pilihan.push(rawak);
+
+        }
+
+    }
+
+    pilihan.sort(
+        ()=>Math.random()-.5
+    );
+
+    const ruang=
+    document.getElementById(
+        "pilihanPerkataan2"
+    );
+
+    ruang.innerHTML="";
+
+    pilihan.forEach(perkataan=>{
+
+        const b=
+        document.createElement("div");
+
+        b.className="drag-item";
+
+        b.innerHTML=
+        perkataan.toLowerCase();
+
+        b.draggable=true;
+
+        b.ondragstart=
+        e=>{
+
+            e.dataTransfer.setData(
+                "text/plain",
+                perkataan
+            );
+
+        };
+
+        ruang.appendChild(b);
+
+    });
+}
+
+
+function dropPerkataan(event){
+
+    event.preventDefault();
+
+    const jawapan=
+    event.dataTransfer.getData(
+        "text/plain"
+    );
+
+    semakGame2(jawapan);
+}
+
+
+function semakGame2(jawapan){
+
+    const item=
+    bahan[urutanGame[indeksGame]];
+
+    if(jawapan===item.perkataan){
+
+        skor2+=10;
+
+        document.getElementById(
+            "kotakJawapan2"
+        ).innerHTML=
+        item.perkataan;
+
+        document.getElementById(
+            "maklum2"
+        ).innerHTML=
+        "🎉 Betul! +10 mata";
+
+        mercun();
+
+        setTimeout(()=>{
+
+            indeksGame++;
+
+            paparGame2();
+
+        },1300);
+
+    }else{
+
+        nyawa2--;
+
+        document.getElementById(
+            "nyawa2"
+        ).innerHTML=nyawa2;
+
+        document.getElementById(
+            "maklum2"
+        ).innerHTML=
+        "❌ Salah! Cuba lagi.";
+
+        bunyiSalah();
+
+        if(nyawa2<=0){
+
+            setTimeout(
+                ()=>tamatGame(2),
+                800
+            );
+
+        }
+
+    }
+}
+
+
+/* =====================================================
+   GAME 3
+===================================================== */
+
+function paparGame3(){
+
+    if(indeksGame>=10){
+
+        tamatGame(3);
+
+        return;
+    }
+
+    const item=
+    bahan[urutanGame[indeksGame]];
+
+    document.getElementById(
+        "gambarGame3"
+    ).src=item.gambar;
+
+    document.getElementById(
+        "soalan3"
+    ).innerHTML=indeksGame+1;
+
+    document.getElementById(
+        "skor3"
+    ).innerHTML=skor3;
+
+    document.getElementById(
+        "nyawa3"
+    ).innerHTML=nyawa3;
+
+    document.getElementById(
+        "maklum3"
+    ).innerHTML="";
+
+    document.getElementById(
+        "ejaan3"
+    ).innerHTML="";
+
+    binaKeyboard();
+
+}
+
+
+/* =====================================================
+   KEYBOARD GAME 3
+===================================================== */
+
+function binaKeyboard(){
+
+    const huruf=
+    "abcdefghijklmnopqrstuvwxyz"
+    .split("");
+
+    const ruang=
+    document.getElementById(
+        "keyboard3"
+    );
+
+    ruang.innerHTML="";
+
+    huruf.forEach(huruf=>{
+
+        const b=
+        document.createElement("button");
+
+        b.className="key";
+
+        b.innerHTML=
+        huruf.toLowerCase();
+
+        b.onclick=()=>{
+            tekanHuruf(huruf);
+        };
+
+        ruang.appendChild(b);
+
+    });
+}
+
+
+function tekanHuruf(huruf){
+
+    const item=
+    bahan[urutanGame[indeksGame]];
+
+    const ejaan=
+    document.getElementById(
+        "ejaan3"
+    );
+
+    const sekarang=
+    ejaan.innerHTML;
+
+    const seterusnya=
+    sekarang+huruf.toLowerCase();
+
+    if(
+        !item.perkataan.startsWith(
+            seterusnya
+        )
+    ){
+
+        nyawa3--;
+
+        document.getElementById(
+            "nyawa3"
+        ).innerHTML=nyawa3;
+
+        document.getElementById(
+            "maklum3"
+        ).innerHTML=
+        "❌ Huruf salah! Cuba lagi.";
+
+        bunyiSalah();
+
+        if(nyawa3<=0){
+
+            setTimeout(
+                ()=>tamatGame(3),
+                800
+            );
+
+        }
+
+        return;
+    }
+
+    ejaan.innerHTML=seterusnya;
+
+    if(
+        seterusnya===
+        item.perkataan
+    ){
+
+        skor3+=10;
+
+        document.getElementById(
+            "skor3"
+        ).innerHTML=skor3;
+
+        document.getElementById(
+            "maklum3"
+        ).innerHTML=
+        "🎉 Betul! +10 mata";
+
+        mercun();
+
+        setTimeout(()=>{
+
+            indeksGame++;
+
+            paparGame3();
+
+        },1300);
+
+    }
+}
+
+
+/* =====================================================
+   TAMAT GAME
+===================================================== */
+
+function tamatGame(game){
+
+    let skor=0;
+
+    if(game===1){
+        skor=skor1;
+    }
+
+    if(game===2){
+        skor=skor2;
+    }
+
+    if(game===3){
+        skor=skor3;
+    }
+
+    tutupSemua();
+
+    document.getElementById(
+        "tamat"
+    ).style.display="block";
+
+    document.getElementById(
+        "namaTamat"
+    ).innerHTML=
+    "👤 "+namaMurid;
+
+    document.getElementById(
+        "skorTamat"
+    ).innerHTML=
+    skor+" mata";
+
+    mercun();
+}
+
+</script>
+
+</body>
+</html>
+
