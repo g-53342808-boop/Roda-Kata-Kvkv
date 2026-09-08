@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="ms">
 <head>
@@ -9,44 +9,14 @@
 
 <style>
 
-/* =====================================================
-   FONT COMIC SANS
-   ===================================================== */
-
-@font-face{
-    font-family:"ComicSansLocal";
-    src:url("comic.ttf") format("truetype");
-    font-weight:400;
-    font-style:normal;
-    font-display:swap;
-}
-
-
-/* =====================================================
-   ASAS
-   ===================================================== */
-
 *{
     box-sizing:border-box;
-}
-
-html,
-body,
-button,
-input,
-h1,
-h2,
-h3,
-p,
-div,
-span{
-    font-family:"ComicSansLocal","Comic Sans MS",cursive,sans-serif;
-    font-style:normal !important;
 }
 
 body{
     margin:0;
     padding:20px;
+    font-family:"Comic Sans MS", cursive, sans-serif;
     text-align:center;
     min-height:100vh;
 
@@ -62,371 +32,473 @@ body{
     background-attachment:fixed;
 }
 
-button{
-    cursor:pointer;
-    border:none;
-    font-style:normal !important;
-}
-
-
-/* =====================================================
-   TAJUK
-   ===================================================== */
-
 h1{
-    font-size:42px;
+    font-size:40px;
     margin:10px 0;
-    font-weight:bold;
+    color:#173f5f;
+    text-shadow:2px 2px 3px rgba(0,0,0,0.15);
 }
 
 h2{
     font-size:30px;
+    color:#173f5f;
+}
+
+h3{
+    font-size:24px;
 }
 
 p{
-    font-size:22px;
+    font-size:20px;
 }
 
-
-/* =====================================================
-   PAPARAN
-   ===================================================== */
+.box{
+    width:100%;
+    max-width:800px;
+    margin:20px auto;
+    padding:25px;
+    background:rgba(255,255,255,0.93);
+    border-radius:25px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.18);
+}
 
 .sembunyi{
     display:none;
 }
 
-.box{
-    max-width:1000px;
-    margin:auto;
-    padding:25px;
+/* =========================
+   BUTANG
+========================= */
+
+button{
+    font-family:"Comic Sans MS", cursive, sans-serif;
+    cursor:pointer;
+    border:none;
 }
 
-
-/* =====================================================
-   MENU UTAMA
-   ===================================================== */
-
 .menu-btn{
-    display:block;
-    width:85%;
+    width:90%;
     max-width:500px;
-    margin:18px auto;
-    padding:18px 25px;
-
+    padding:18px;
+    margin:12px auto;
+    display:block;
     border-radius:20px;
-
-    color:white;
-    font-size:25px;
+    font-size:24px;
     font-weight:bold;
+    box-shadow:0 5px 10px rgba(0,0,0,0.18);
+    transition:0.2s;
+}
 
-    font-family:"ComicSansLocal","Comic Sans MS",cursive,sans-serif;
-    font-style:normal !important;
+.menu-btn:hover{
+    transform:scale(1.04);
 }
 
 .pengajaran-btn{
-    background:#27ae60;
+    background:#72d572;
+    color:white;
 }
 
 .roda-btn{
-    background:#f39c12;
+    background:#ff9f43;
+    color:white;
 }
 
 .latihan-btn{
-    background:#3498db;
+    background:#4da6ff;
+    color:white;
 }
 
 .kembali{
     background:#777;
     color:white;
-
     padding:13px 25px;
     border-radius:15px;
-
     font-size:20px;
     margin-top:20px;
-
-    font-family:"ComicSansLocal","Comic Sans MS",cursive,sans-serif;
-    font-style:normal !important;
 }
 
-
-/* =====================================================
-   BUTANG PEMBELAJARAN
-   ===================================================== */
-
-.btn-belajar,
-.btn-roda-semula,
-.btn-mula{
-    padding:14px 25px;
+.btn-belajar{
+    background:#8e44ad;
+    color:white;
+    padding:15px 25px;
     border-radius:15px;
-    font-size:21px;
-    margin:8px;
-
-    font-family:"ComicSansLocal","Comic Sans MS",cursive,sans-serif;
-    font-style:normal !important;
+    font-size:20px;
+    font-weight:bold;
 }
 
+.btn-roda-semula{
+    background:#ff9f43;
+    color:white;
+    padding:15px 25px;
+    border-radius:15px;
+    font-size:20px;
+    font-weight:bold;
+    margin-top:10px;
+}
 
-/* =====================================================
-   PENGAJARAN
-   ===================================================== */
+.btn-mula{
+    background:#27ae60;
+    color:white;
+    padding:17px 30px;
+    border-radius:18px;
+    font-size:23px;
+    font-weight:bold;
+}
 
-#gambarPengajaran{
-    width:230px;
+/* =========================
+   PEMBELAJARAN
+========================= */
+
+.gambar-pembelajaran{
+    width:220px;
     height:180px;
     object-fit:contain;
-
     border-radius:20px;
-    margin:15px auto;
-}
-
-.pilihan{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:15px;
-
-    margin:20px auto;
-    max-width:700px;
-}
-
-.pilihan button{
-    min-width:120px;
-    padding:15px 20px;
-
+    margin:10px auto;
     background:white;
-    border:4px solid #3498db;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+
+.perkataan-besar{
+    min-height:0;
+    margin:0;
+    font-size:0;
+}
+
+.langkah{
+    margin:20px 0;
+    padding:20px;
+    border-radius:20px;
+    background:#f7fbff;
+    border:3px dashed #7db7d9;
+}
+
+.langkah h3{
+    margin-top:0;
+    color:#245b73;
+}
+
+.kumpulan-pilihan{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin:15px 0;
+}
+
+.pilihan-suku{
+    min-width:90px;
+    padding:15px 25px;
+    background:#ffffff;
+    border:4px solid #74b9ff;
     border-radius:18px;
-
-    font-size:25px;
-    font-weight:bold;
-
-    font-family:"ComicSansLocal","Comic Sans MS",cursive,sans-serif;
-    font-style:normal !important;
-}
-
-.pilihan button:hover{
-    transform:scale(1.05);
-}
-
-.mesej{
     font-size:28px;
     font-weight:bold;
-    min-height:45px;
-    margin:15px;
+    box-shadow:0 4px 8px rgba(0,0,0,0.15);
+    transition:0.2s;
 }
 
+.pilihan-suku:hover{
+    transform:scale(1.08);
+}
 
-/* =====================================================
-   RODA KATA
-   ===================================================== */
+.pilihan-suku:disabled{
+    cursor:not-allowed;
+    opacity:0.7;
+}
+
+.status-pembelajaran{
+    font-size:22px;
+    font-weight:bold;
+    min-height:30px;
+}
+
+.jawapan-pembelajaran{
+    font-size:34px;
+    font-weight:bold;
+    margin:20px;
+    padding:20px;
+    border-radius:20px;
+    background:#fff4b8;
+}
+
+/* =========================
+   RODA
+========================= */
+
+.roda-wrapper{
+    position:relative;
+    width:420px;
+    height:470px;
+    margin:20px auto;
+}
 
 .roda-container{
-    position:relative;
-    width:350px;
-    height:350px;
-
-    margin:30px auto;
+    position:absolute;
+    left:50%;
+    top:20px;
+    transform:translateX(-50%);
+    width:420px;
+    height:420px;
 }
 
-#rodaCanvas{
-    width:350px;
-    height:350px;
+#rodaBulatan{
+    position:relative;
+    width:400px;
+    height:400px;
+    margin:0 auto;
+    border-radius:50%;
+    overflow:visible;
+    border:8px solid white;
+
+    box-shadow:0 8px 25px rgba(0,0,0,0.25);
+
+    background:
+    conic-gradient(
+        #ff7675 0deg 36deg,
+        #74b9ff 36deg 72deg,
+        #55efc4 72deg 108deg,
+        #ffeaa7 108deg 144deg,
+        #a29bfe 144deg 180deg,
+        #fd79a8 180deg 216deg,
+        #81ecec 216deg 252deg,
+        #fab1a0 252deg 288deg,
+        #badc58 288deg 324deg,
+        #f6e58d 324deg 360deg
+    );
+
+    transition:
+    transform 5s cubic-bezier(.17,.67,.12,1);
+}
+
+.tanda-roda{
+    position:absolute;
+    top:-5px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:20;
+    font-size:50px;
+    color:red;
+    text-shadow:2px 2px 3px rgba(0,0,0,0.3);
+}
+
+.gambar-roda{
+    position:absolute;
+    width:95px;
+    height:75px;
+    object-fit:contain;
+    background:white;
+    border-radius:15px;
+    padding:5px;
+
+    box-shadow:
+    0 3px 8px rgba(0,0,0,0.2);
+
+    left:50%;
+    top:50%;
+
+    transform:
+    translate(-50%,-50%);
+
+    transition:
+    transform 0.1s;
+}
+
+.gambar-roda:nth-child(1){
+    left:50%;
+    top:9%;
+}
+
+.gambar-roda:nth-child(2){
+    left:74%;
+    top:17%;
+}
+
+.gambar-roda:nth-child(3){
+    left:89%;
+    top:38%;
+}
+
+.gambar-roda:nth-child(4){
+    left:89%;
+    top:63%;
+}
+
+.gambar-roda:nth-child(5){
+    left:74%;
+    top:82%;
+}
+
+.gambar-roda:nth-child(6){
+    left:50%;
+    top:91%;
+}
+
+.gambar-roda:nth-child(7){
+    left:26%;
+    top:82%;
+}
+
+.gambar-roda:nth-child(8){
+    left:11%;
+    top:63%;
+}
+
+.gambar-roda:nth-child(9){
+    left:11%;
+    top:38%;
+}
+
+.gambar-roda:nth-child(10){
+    left:26%;
+    top:17%;
+}
+
+.roda-tengah{
+    position:absolute;
+    width:75px;
+    height:75px;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
 
     border-radius:50%;
-}
-
-.penunjuk{
-    position:absolute;
-
-    top:-20px;
-    left:50%;
-
-    transform:translateX(-50%);
-
-    width:0;
-    height:0;
-
-    border-left:18px solid transparent;
-    border-right:18px solid transparent;
-    border-top:40px solid red;
-
-    z-index:5;
-}
-
-#butangPusing{
-    background:#f39c12;
-    color:white;
-
-    padding:16px 35px;
-    border-radius:20px;
-
-    font-size:26px;
-    font-weight:bold;
-
-    font-family:"ComicSansLocal","Comic Sans MS",cursive,sans-serif;
-    font-style:normal !important;
-}
-
-#hasilRoda{
-    margin-top:25px;
-}
-
-#gambarRoda{
-    width:200px;
-    height:160px;
-    object-fit:contain;
-}
-
-#perkataanRoda{
-    font-size:40px;
-    font-weight:bold;
-    margin:10px;
-}
-
-
-/* =====================================================
-   LATIHAN
-   ===================================================== */
-
-#namaMurid{
-    width:90%;
-    max-width:500px;
-
-    padding:15px;
-
-    border:3px solid #3498db;
-    border-radius:15px;
-
-    font-size:22px;
-    text-align:center;
-
-    font-family:"ComicSansLocal","Comic Sans MS",cursive,sans-serif;
-    font-style:normal !important;
-}
-
-.game-btn{
-    display:block;
-
-    width:85%;
-    max-width:500px;
-
-    margin:15px auto;
-    padding:18px;
-
-    border-radius:18px;
-
-    background:#3498db;
-    color:white;
-
-    font-size:24px;
-    font-weight:bold;
-
-    font-family:"ComicSansLocal","Comic Sans MS",cursive,sans-serif;
-    font-style:normal !important;
-}
-
-
-/* =====================================================
-   GAME 1
-   ===================================================== */
-
-#game1Gambar{
-    width:230px;
-    height:180px;
-    object-fit:contain;
-}
-
-.drop-area{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-
-    margin:25px;
-}
-
-.drop-box{
-    width:130px;
-    height:80px;
-
-    border:4px dashed #3498db;
-    border-radius:15px;
+    background:white;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
+    font-size:38px;
+    z-index:10;
+
+    box-shadow:
+    0 3px 10px rgba(0,0,0,0.25);
+}
+
+#butangPusing{
+    background:#ff7675;
+    color:white;
+    padding:17px 35px;
+    border-radius:20px;
+    font-size:24px;
+    font-weight:bold;
+    margin-top:10px;
+
+    box-shadow:
+    0 5px 10px rgba(0,0,0,0.2);
+}
+
+#butangPusing:hover{
+    transform:scale(1.05);
+}
+
+#butangPusing:disabled{
+    background:#aaa;
+    cursor:not-allowed;
+}
+
+/* =========================
+   LATIHAN
+========================= */
+
+.input-nama{
+    width:90%;
+    max-width:450px;
+    padding:15px;
+
+    font-family:"Comic Sans MS", cursive;
+    font-size:22px;
+
+    border:3px solid #74b9ff;
+    border-radius:15px;
+    text-align:center;
+}
+
+.game-card{
+    margin:20px auto;
+    padding:20px;
+
+    max-width:650px;
+
+    background:white;
+    border-radius:25px;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,0.15);
+}
+
+.game-title{
+    font-size:30px;
+    color:#173f5f;
+}
+
+.skor{
+    font-size:24px;
+    font-weight:bold;
+}
+
+.nyawa{
+    font-size:28px;
+}
+
+.progress{
+    font-size:20px;
+    margin:10px;
+}
+
+.gambar-game{
+    width:220px;
+    height:180px;
+    object-fit:contain;
+    border-radius:20px;
+    background:white;
+    margin:10px auto;
+}
+
+.game-pilihan{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+    margin:20px;
+}
+
+.game-suku{
+    padding:15px 25px;
+    background:#74b9ff;
+    color:white;
+    border-radius:15px;
+    font-size:25px;
+    font-weight:bold;
+    cursor:grab;
+}
+
+.game-perkataan{
+    padding:15px 25px;
+    background:#55efc4;
+    border-radius:15px;
+    font-size:25px;
+    font-weight:bold;
+    cursor:grab;
+}
+
+.drop-box{
+    width:180px;
+    min-height:70px;
+    margin:20px auto;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border:4px dashed #ff7675;
+    border-radius:20px;
+
     font-size:28px;
     font-weight:bold;
 
-    background:white;
-}
-
-.suku-pilihan{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:12px;
-}
-
-.suku-pilihan button{
-    padding:15px 22px;
-
-    border-radius:15px;
-    background:#f1c40f;
-
-    font-size:24px;
-    font-weight:bold;
-
-    font-family:"ComicSansLocal","Comic Sans MS",cursive,sans-serif;
-    font-style:normal !important;
-}
-
-
-/* =====================================================
-   GAME 2
-   ===================================================== */
-
-.perkataan-pilihan{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:15px;
-}
-
-.perkataan-pilihan button{
-    padding:15px 25px;
-
-    background:#9b59b6;
-    color:white;
-
-    border-radius:15px;
-
-    font-size:25px;
-    font-weight:bold;
-
-    font-family:"ComicSansLocal","Comic Sans MS",cursive,sans-serif;
-    font-style:normal !important;
-}
-
-
-/* =====================================================
-   GAME 3
-   ===================================================== */
-
-#game3Gambar{
-    width:230px;
-    height:180px;
-    object-fit:contain;
-}
-
-#paparanPerkataan{
-    font-size:42px;
-    font-weight:bold;
-    letter-spacing:5px;
-
-    margin:20px;
+    background:#fff5f5;
 }
 
 .keyboard{
@@ -435,100 +507,129 @@ p{
     justify-content:center;
 
     max-width:600px;
-    margin:auto;
-
-    gap:8px;
+    margin:20px auto;
+    gap:7px;
 }
 
-.keyboard button{
-    width:55px;
-    height:55px;
+.huruf{
+    width:45px;
+    height:45px;
+    border-radius:10px;
 
-    border-radius:12px;
-
-    background:#3498db;
+    background:#74b9ff;
     color:white;
 
+    font-family:"Comic Sans MS", cursive;
     font-size:22px;
     font-weight:bold;
-
-    font-family:"ComicSansLocal","Comic Sans MS",cursive,sans-serif;
-    font-style:normal !important;
 }
 
-#nyawa{
-    font-size:25px;
+.huruf:hover{
+    transform:scale(1.08);
+}
+
+.jawapan-game{
+    font-size:32px;
     font-weight:bold;
+    min-height:45px;
     margin:15px;
 }
 
-
-/* =====================================================
-   TAMAT
-   ===================================================== */
-
-.tahniah{
-    font-size:38px;
-    font-weight:bold;
-    margin:20px;
-}
-
-.markah{
-    font-size:30px;
-    font-weight:bold;
-}
-
-
-/* =====================================================
+/* =========================
    BUNGA API
-   ===================================================== */
+========================= */
 
 #fireworks{
     position:fixed;
-    inset:0;
+    left:0;
+    top:0;
+
+    width:100%;
+    height:100%;
 
     pointer-events:none;
-    overflow:hidden;
 
-    z-index:100;
+    z-index:1000;
+
+    display:none;
+
+    overflow:hidden;
 }
 
-.bunga-api{
+.firework{
     position:absolute;
 
-    width:10px;
-    height:10px;
+    width:12px;
+    height:12px;
 
     border-radius:50%;
 
     animation:
-        meletup 1.5s ease-out forwards;
+    letup 1.6s ease-out forwards;
+
+    box-shadow:
+    0 0 8px currentColor,
+    0 0 15px currentColor;
 }
 
-@keyframes meletup{
+.firework.besar{
+    width:15px;
+    height:15px;
+
+    animation-duration:2.2s;
+}
+
+.tahniah{
+    position:fixed;
+
+    left:50%;
+    top:50%;
+
+    transform:
+    translate(-50%,-50%);
+
+    z-index:1100;
+
+    background:white;
+
+    padding:30px 45px;
+
+    border-radius:30px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.3);
+
+    font-size:35px;
+
+    display:none;
+}
+
+@keyframes letup{
 
     0%{
-        transform:translate(0,0) scale(1);
+        transform:
+        translate(0,0)
+        scale(0);
+
+        opacity:1;
+    }
+
+    30%{
         opacity:1;
     }
 
     100%{
         transform:
-            translate(
-                var(--x),
-                var(--y)
-            )
-            scale(0);
+        translate(var(--x),var(--y))
+        scale(0.3);
 
         opacity:0;
     }
-
 }
 
-
-/* =====================================================
+/* =========================
    RESPONSIVE
-   ===================================================== */
+========================= */
 
 @media(max-width:600px){
 
@@ -544,414 +645,800 @@ p{
         font-size:25px;
     }
 
-    p{
-        font-size:19px;
+    .box{
+        padding:15px;
     }
 
-    .menu-btn{
-        width:95%;
-        font-size:21px;
-        padding:16px;
+    .roda-wrapper{
+        width:330px;
+        height:370px;
     }
 
     .roda-container{
-        width:300px;
-        height:300px;
+        width:330px;
+        height:330px;
     }
 
-    #rodaCanvas{
-        width:300px;
-        height:300px;
+    #rodaBulatan{
+        width:320px;
+        height:320px;
     }
 
-    #perkataanRoda{
-        font-size:32px;
+    .gambar-roda{
+        width:65px;
+        height:55px;
     }
 
-    #paparanPerkataan{
-        font-size:32px;
+    .roda-tengah{
+        width:60px;
+        height:60px;
+        font-size:30px;
     }
 
-    .keyboard button{
-        width:45px;
-        height:45px;
-        font-size:19px;
+    .tanda-roda{
+        font-size:40px;
     }
 
+    .gambar-pembelajaran,
+    .gambar-game{
+        width:180px;
+        height:150px;
+    }
+
+    .pilihan-suku{
+        font-size:24px;
+        min-width:75px;
+        padding:12px 18px;
+    }
+
+    .jawapan-pembelajaran{
+        font-size:27px;
+    }
+
+    .menu-btn{
+        font-size:20px;
+    }
 }
 
 </style>
 </head>
 
-
 <body>
 
-
-<!-- =====================================================
-     UTAMA
-     ===================================================== -->
+<!-- =========================
+     MENU UTAMA
+========================= -->
 
 <section id="utama">
 
-    <div class="box">
+<div class="box">
 
-        <h1>🎡 RODA KATA KVKV</h1>
+<h1>🎡 RODA KATA KVKV</h1>
 
-        <p>
-            pusing • pilih • baca • bermain
-        </p>
+<p>
+pusing • pilih • baca • bermain
+</p>
 
-        <button
-            class="menu-btn pengajaran-btn"
-            onclick="bukaPengajaran()">
-            📖 PENGAJARAN
-        </button>
+<button
+class="menu-btn pengajaran-btn"
+onclick="bukaPengajaran()">
 
-        <button
-            class="menu-btn roda-btn"
-            onclick="bukaRoda()">
-            🎡 MULA RODA KATA
-        </button>
+📖 PENGAJARAN
 
-        <button
-            class="menu-btn latihan-btn"
-            onclick="bukaLatihan()">
-            🎮 LATIHAN
-        </button>
+</button>
 
-    </div>
+<button
+class="menu-btn roda-btn"
+onclick="bukaRoda()">
+
+🎡 MULA RODA KATA
+
+</button>
+
+<button
+class="menu-btn latihan-btn"
+onclick="bukaLatihan()">
+
+🎮 LATIHAN
+
+</button>
+
+</div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      PENGAJARAN
-     ===================================================== -->
+========================= -->
 
 <section id="pengajaran" class="sembunyi">
 
-    <div class="box">
+<div class="box">
 
-        <h2>📖 PENGAJARAN KVKV</h2>
+<h2>📖 PENGAJARAN KVKV</h2>
 
-        <div id="aktivitiPengajaran"></div>
+<p id="tajukPengajaran">
+Lihat gambar dan pilih suku kata.
+</p>
 
-        <button
-            class="kembali"
-            onclick="bukaUtama()">
-            ↩ KEMBALI
-        </button>
+<img
+id="gambarPengajaran"
+class="gambar-pembelajaran"
+src="gambar/baju.jpg">
 
-    </div>
+<div
+id="perkataanPengajaran"
+class="perkataan-besar">
+</div>
+
+
+<div
+id="aktivitiPengajaran"
+class="langkah">
+
+<h3>
+🎯 LANGKAH 1
+</h3>
+
+<p>
+Pilih suku kata pertama.
+</p>
+
+<div
+id="pilihanPertama"
+class="kumpulan-pilihan">
+</div>
+
+<p
+id="statusPertama"
+class="status-pembelajaran">
+</p>
+
+
+<div
+id="langkahPengajaran2"
+style="display:none;">
+
+<h3>
+🎯 LANGKAH 2
+</h3>
+
+<p>
+Pilih suku kata kedua.
+</p>
+
+<div
+id="pilihanKedua"
+class="kumpulan-pilihan">
+</div>
+
+<p
+id="statusKedua"
+class="status-pembelajaran">
+</p>
+
+</div>
+
+
+<div
+id="akhirPengajaran"
+style="display:none;">
+
+<h3>
+🎉 SYABAS!
+</h3>
+
+<div
+id="jawapanPengajaran"
+class="jawapan-pembelajaran">
+</div>
+
+<button
+class="btn-belajar"
+onclick="seterusnya()">
+
+➡️ PERKATAAN SETERUSNYA
+
+</button>
+
+</div>
+
+</div>
+
+
+<button
+class="kembali"
+onclick="bukaUtama()">
+
+⬅️ KEMBALI
+
+</button>
+
+</div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      RODA
-     ===================================================== -->
+========================= -->
 
 <section id="roda" class="sembunyi">
 
-    <div class="box">
+<div class="box">
 
-        <h2>🎡 RODA KATA KVKV</h2>
+<h2>
+🎡 RODA KATA KVKV
+</h2>
 
-        <div class="roda-container">
+<p>
+Pusing roda dan lihat gambar yang dipilih.
+</p>
 
-            <div class="penunjuk"></div>
 
-            <canvas
-                id="rodaCanvas"
-                width="350"
-                height="350">
-            </canvas>
+<div class="roda-wrapper">
 
-        </div>
+<div class="tanda-roda">
+▼
+</div>
 
-        <button
-            id="butangPusing"
-            onclick="pusingRoda()">
-            🎡 PUSING RODA
-        </button>
+<div class="roda-container">
 
-        <div id="hasilRoda">
+<div id="rodaBulatan">
 
-            <img
-                id="gambarRoda"
-                src=""
-                alt="gambar">
+<img
+class="gambar-roda"
+src="gambar/baju.jpg">
 
-            <div id="perkataanRoda"></div>
+<img
+class="gambar-roda"
+src="gambar/batu.jpg">
 
-        </div>
+<img
+class="gambar-roda"
+src="gambar/bola.jpg">
 
-        <button
-            class="btn-roda-semula"
-            onclick="bukaRoda()">
-            🔄 PUSING SEMULA
-        </button>
+<img
+class="gambar-roda"
+src="gambar/buku.jpg">
 
-        <button
-            class="kembali"
-            onclick="bukaUtama()">
-            ↩ KEMBALI
-        </button>
+<img
+class="gambar-roda"
+src="gambar/gigi.jpg">
 
-    </div>
+<img
+class="gambar-roda"
+src="gambar/kaki.jpg">
+
+<img
+class="gambar-roda"
+src="gambar/kayu.jpg">
+
+<img
+class="gambar-roda"
+src="gambar/mata.jpg">
+
+<img
+class="gambar-roda"
+src="gambar/meja.jpg">
+
+<img
+class="gambar-roda"
+src="gambar/topi.jpg">
+
+<div class="roda-tengah">
+🎡
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<button
+id="butangPusing"
+onclick="pusingRoda()">
+
+🎡 PUSING RODA
+
+</button>
+
+<br>
+
+<button
+class="kembali"
+onclick="bukaUtama()">
+
+⬅️ KEMBALI
+
+</button>
+
+</div>
 
 </section>
 
 
-<!-- =====================================================
-     PEMBELAJARAN SELEPAS RODA
-     ===================================================== -->
+<!-- =========================
+     PEMBELAJARAN RODA
+========================= -->
 
-<section id="pembelajaranRoda" class="sembunyi">
+<section
+id="pembelajaranRoda"
+class="sembunyi">
 
-    <div class="box">
+<div class="box">
 
-        <h2>📚 JOM BACA</h2>
+<h2>
+🎯 PEMBELAJARAN RODA KATA
+</h2>
 
-        <div id="aktivitiPembelajaranRoda"></div>
+<p id="tajukPembelajaran">
+🖼️ Lihat gambar dan lengkapkan perkataan.
+</p>
 
-        <button
-            class="kembali"
-            onclick="kembaliKeRoda()">
-            ↩ KEMBALI
-        </button>
+<img
+id="gambarPembelajaran"
+class="gambar-pembelajaran">
 
-    </div>
+
+<div
+id="perkataanPembelajaran"
+class="perkataan-besar">
+</div>
+
+
+<div
+id="langkah1"
+class="langkah">
+
+<h3>
+🎯 LANGKAH 1
+</h3>
+
+<p>
+Pilih suku kata pertama.
+</p>
+
+<div
+id="pilihanBelajar1"
+class="kumpulan-pilihan">
+</div>
+
+<p
+id="statusBelajar1"
+class="status-pembelajaran">
+</p>
+
+</div>
+
+
+<div
+id="langkah2"
+class="langkah"
+style="display:none;">
+
+<h3>
+🎯 LANGKAH 2
+</h3>
+
+<p>
+Pilih suku kata kedua.
+</p>
+
+<div
+id="pilihanBelajar2"
+class="kumpulan-pilihan">
+</div>
+
+<p
+id="statusBelajar2"
+class="status-pembelajaran">
+</p>
+
+</div>
+
+
+<div
+id="langkahAkhir"
+class="langkah"
+style="display:none;">
+
+<h3>
+🎉 SYABAS!
+</h3>
+
+<div
+id="jawapanPembelajaran"
+class="jawapan-pembelajaran">
+</div>
+
+<button
+class="btn-roda-semula"
+onclick="kembaliKeRoda()">
+
+🎡 KEMBALI KE RODA KATA
+
+</button>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      LATIHAN
-     ===================================================== -->
+========================= -->
 
-<section id="latihan" class="sembunyi">
+<section
+id="latihan"
+class="sembunyi">
 
-    <div class="box">
+<div class="box">
 
-        <h2>🎮 LATIHAN KVKV</h2>
+<h2>
+🎮 LATIHAN
+</h2>
 
-        <p>Masukkan nama murid</p>
+<p>
+Masukkan nama murid.
+</p>
 
-        <input
-            type="text"
-            id="namaMurid"
-            placeholder="Nama murid">
+<input
+id="namaMurid"
+class="input-nama"
+type="text"
+placeholder="Nama murid">
 
-        <br><br>
+<br>
+<br>
 
-        <button
-            class="btn-mula"
-            onclick="simpanNama()">
-            ▶ MULA LATIHAN
-        </button>
+<button
+class="btn-mula"
+onclick="simpanNama()">
 
-        <br>
+🚀 MULA LATIHAN
 
-        <button
-            class="kembali"
-            onclick="bukaUtama()">
-            ↩ KEMBALI
-        </button>
+</button>
 
-    </div>
+<br>
+
+<button
+class="kembali"
+onclick="bukaUtama()">
+
+⬅️ KEMBALI
+
+</button>
+
+</div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      PILIH GAME
-     ===================================================== -->
+========================= -->
 
-<section id="pilihGame" class="sembunyi">
+<section
+id="pilihGame"
+class="sembunyi">
 
-    <div class="box">
+<div class="box">
 
-        <h2>🎮 PILIH PERMAINAN</h2>
+<h2>
+🎮 PILIH LATIHAN
+</h2>
 
-        <div id="namaPaparan"></div>
+<p id="ucapanNama">
+</p>
 
-        <button
-            class="game-btn"
-            onclick="mulaGame(1)">
-            🎯 GAME 1 — SUSUN SUKU KATA
-        </button>
 
-        <button
-            class="game-btn"
-            onclick="mulaGame(2)">
-            🧩 GAME 2 — PILIH PERKATAAN
-        </button>
+<button
+class="menu-btn pengajaran-btn"
+onclick="mulaGame(1)">
 
-        <button
-            class="game-btn"
-            onclick="mulaGame(3)">
-            ⌨️ GAME 3 — TEKA PERKATAAN
-        </button>
+🎯 GAME 1
+<br>
+Lengkapkan Suku Kata
 
-        <button
-            class="kembali"
-            onclick="bukaLatihan()">
-            ↩ KEMBALI
-        </button>
+</button>
 
-    </div>
+
+<button
+class="menu-btn roda-btn"
+onclick="mulaGame(2)">
+
+🖼️ GAME 2
+<br>
+Pilih Perkataan
+
+</button>
+
+
+<button
+class="menu-btn latihan-btn"
+onclick="mulaGame(3)">
+
+🔤 GAME 3
+<br>
+Bina Perkataan
+
+</button>
+
+
+<button
+class="kembali"
+onclick="bukaUtama()">
+
+⬅️ KEMBALI
+
+</button>
+
+</div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      GAME 1
-     ===================================================== -->
+========================= -->
 
-<section id="game1" class="sembunyi">
+<section
+id="game1"
+class="sembunyi">
 
-    <div class="box">
+<div class="box game-card">
 
-        <h2>🎯 SUSUN SUKU KATA</h2>
+<div class="game-title">
+🎯 GAME 1
+</div>
 
-        <img
-            id="game1Gambar"
-            src=""
-            alt="gambar">
+<div
+id="skorGame1"
+class="skor">
 
-        <div class="drop-area">
+Skor: 0
 
-            <div
-                class="drop-box"
-                id="drop1">
-            </div>
+</div>
 
-            <div
-                class="drop-box"
-                id="drop2">
-            </div>
+<div
+id="nyawaGame1"
+class="nyawa">
 
-        </div>
+❤️❤️❤️
 
-        <div
-            class="suku-pilihan"
-            id="pilihanSuku">
-        </div>
+</div>
 
-        <div
-            class="mesej"
-            id="mesejGame1">
-        </div>
+<div
+id="progressGame1"
+class="progress">
+</div>
 
-        <button
-            class="btn-mula"
-            onclick="semakGame1()">
-            ✔ SEMAK
-        </button>
+<img
+id="gambarGame1"
+class="gambar-game">
 
-    </div>
+<p>
+Lengkapkan perkataan.
+</p>
+
+<div
+id="perkataanGame1"
+class="jawapan-game">
+</div>
+
+<div
+id="drop1"
+class="drop-box"
+ondragover="event.preventDefault()"
+ondrop="dropSuku(event)">
+
+?
+
+</div>
+
+<div
+id="pilihanGame1"
+class="game-pilihan">
+</div>
+
+<p
+id="statusGame1"
+class="status-pembelajaran">
+</p>
+
+</div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      GAME 2
-     ===================================================== -->
+========================= -->
 
-<section id="game2" class="sembunyi">
+<section
+id="game2"
+class="sembunyi">
 
-    <div class="box">
+<div class="box game-card">
 
-        <h2>🧩 PILIH PERKATAAN</h2>
+<div class="game-title">
+🖼️ GAME 2
+</div>
 
-        <img
-            id="game2Gambar"
-            src=""
-            style="width:230px;height:180px;object-fit:contain;"
-            alt="gambar">
+<div
+id="skorGame2"
+class="skor">
 
-        <div
-            class="perkataan-pilihan"
-            id="pilihanPerkataan">
-        </div>
+Skor: 0
 
-        <div
-            class="mesej"
-            id="mesejGame2">
-        </div>
+</div>
 
-    </div>
+<div
+id="nyawaGame2"
+class="nyawa">
+
+❤️❤️❤️
+
+</div>
+
+<div
+id="progressGame2"
+class="progress">
+</div>
+
+<img
+id="gambarGame2"
+class="gambar-game">
+
+<p>
+Seret perkataan yang betul.
+</p>
+
+<div
+id="kotakJawapan2"
+class="drop-box"
+ondragover="event.preventDefault()"
+ondrop="dropPerkataan(event)">
+
+Seret ke sini
+
+</div>
+
+<div
+id="pilihanGame2"
+class="game-pilihan">
+</div>
+
+<p
+id="statusGame2"
+class="status-pembelajaran">
+</p>
+
+</div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      GAME 3
-     ===================================================== -->
+========================= -->
 
-<section id="game3" class="sembunyi">
+<section
+id="game3"
+class="sembunyi">
 
-    <div class="box">
+<div class="box game-card">
 
-        <h2>⌨️ TEKA PERKATAAN</h2>
+<div class="game-title">
+🔤 GAME 3
+</div>
 
-        <img
-            id="game3Gambar"
-            src=""
-            alt="gambar">
+<div
+id="skorGame3"
+class="skor">
 
-        <div
-            id="paparanPerkataan">
-        </div>
+Skor: 0
 
-        <div
-            id="nyawa">
-        </div>
+</div>
 
-        <div
-            class="keyboard"
-            id="keyboard">
-        </div>
+<div
+id="nyawaGame3"
+class="nyawa">
 
-    </div>
+❤️❤️❤️
+
+</div>
+
+<div
+id="progressGame3"
+class="progress">
+</div>
+
+<img
+id="gambarGame3"
+class="gambar-game">
+
+<p>
+Tekan huruf untuk membina perkataan.
+</p>
+
+<div
+id="jawapanGame3"
+class="jawapan-game">
+</div>
+
+<div
+id="keyboardGame3"
+class="keyboard">
+</div>
+
+<p
+id="statusGame3"
+class="status-pembelajaran">
+</p>
+
+</div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      TAMAT
-     ===================================================== -->
+========================= -->
 
-<section id="tamat" class="sembunyi">
+<section
+id="tamat"
+class="sembunyi">
 
-    <div class="box">
+<div class="box">
 
-        <div class="tahniah">
-            🎉 TAHNIAH! 🎉
-        </div>
+<h2>
+🎉 TAHNIAH!
+</h2>
 
-        <div
-            class="markah"
-            id="markahAkhir">
-        </div>
+<p id="namaTamat">
+</p>
 
-        <button
-            class="btn-mula"
-            onclick="bukaPilihGame()">
-            🔄 MAIN SEMULA
-        </button>
+<div
+id="skorTamat"
+style="
+font-size:40px;
+font-weight:bold;
+margin:25px;">
+</div>
 
-        <button
-            class="kembali"
-            onclick="bukaUtama()">
-            ↩ KEMBALI
-        </button>
+<button
+class="btn-mula"
+onclick="bukaPilihGame()">
 
-    </div>
+🎮 MAIN LAGI
+
+</button>
+
+<br>
+
+<button
+class="kembali"
+onclick="bukaUtama()">
+
+🏠 MENU UTAMA
+
+</button>
+
+</div>
 
 </section>
 
+
+<!-- =========================
+     BUNGA API
+========================= -->
 
 <div id="fireworks"></div>
 
@@ -959,230 +1446,358 @@ p{
 <script>
 
 /* =====================================================
-   DATA KVKV
-   ===================================================== */
+   DATA PERKATAAN
+===================================================== */
 
 const bahan = [
 
-    {
-        perkataan:"baju",
-        gambar:"gambar/baju.jpg",
-        suku1:"ba",
-        suku2:"ju",
-        pilihan1:["ba","be","bi","bo"],
-        pilihan2:["ja","ji","ju","jo"]
-    },
+{
+    gambar:"gambar/baju.jpg",
+    perkataan:"baju",
+    suku1:"ba",
+    suku2:"ju"
+},
 
-    {
-        perkataan:"batu",
-        gambar:"gambar/batu.jpg",
-        suku1:"ba",
-        suku2:"tu",
-        pilihan1:["ba","be","bi","bo"],
-        pilihan2:["ta","ti","tu","to"]
-    },
+{
+    gambar:"gambar/batu.jpg",
+    perkataan:"batu",
+    suku1:"ba",
+    suku2:"tu"
+},
 
-    {
-        perkataan:"bola",
-        gambar:"gambar/bola.jpg",
-        suku1:"bo",
-        suku2:"la",
-        pilihan1:["ba","be","bi","bo"],
-        pilihan2:["la","li","lu","lo"]
-    },
+{
+    gambar:"gambar/bola.jpg",
+    perkataan:"bola",
+    suku1:"bo",
+    suku2:"la"
+},
 
-    {
-        perkataan:"buku",
-        gambar:"gambar/buku.jpg",
-        suku1:"bu",
-        suku2:"ku",
-        pilihan1:["ba","be","bi","bu"],
-        pilihan2:["ka","ki","ku","ko"]
-    },
+{
+    gambar:"gambar/buku.jpg",
+    perkataan:"buku",
+    suku1:"bu",
+    suku2:"ku"
+},
 
-    {
-        perkataan:"gigi",
-        gambar:"gambar/gigi.jpg",
-        suku1:"gi",
-        suku2:"gi",
-        pilihan1:["ga","ge","gi","go"],
-        pilihan2:["ga","ge","gi","go"]
-    },
+{
+    gambar:"gambar/gigi.jpg",
+    perkataan:"gigi",
+    suku1:"gi",
+    suku2:"gi"
+},
 
-    {
-        perkataan:"kaki",
-        gambar:"gambar/kaki.jpg",
-        suku1:"ka",
-        suku2:"ki",
-        pilihan1:["ka","ke","ki","ko"],
-        pilihan2:["ka","ke","ki","ko"]
-    },
+{
+    gambar:"gambar/kaki.jpg",
+    perkataan:"kaki",
+    suku1:"ka",
+    suku2:"ki"
+},
 
-    {
-        perkataan:"kayu",
-        gambar:"gambar/kayu.jpg",
-        suku1:"ka",
-        suku2:"yu",
-        pilihan1:["ka","ke","ki","ko"],
-        pilihan2:["ya","ye","yi","yu"]
-    },
+{
+    gambar:"gambar/kayu.jpg",
+    perkataan:"kayu",
+    suku1:"ka",
+    suku2:"yu"
+},
 
-    {
-        perkataan:"mata",
-        gambar:"gambar/mata.jpg",
-        suku1:"ma",
-        suku2:"ta",
-        pilihan1:["ma","me","mi","mo"],
-        pilihan2:["ta","te","ti","to"]
-    },
+{
+    gambar:"gambar/mata.jpg",
+    perkataan:"mata",
+    suku1:"ma",
+    suku2:"ta"
+},
 
-    {
-        perkataan:"meja",
-        gambar:"gambar/meja.jpg",
-        suku1:"me",
-        suku2:"ja",
-        pilihan1:["ma","me","mi","mo"],
-        pilihan2:["ja","je","ji","jo"]
-    },
+{
+    gambar:"gambar/meja.jpg",
+    perkataan:"meja",
+    suku1:"me",
+    suku2:"ja"
+},
 
-    {
-        perkataan:"topi",
-        gambar:"gambar/topi.jpg",
-        suku1:"to",
-        suku2:"pi",
-        pilihan1:["ta","te","ti","to"],
-        pilihan2:["pa","pe","pi","po"]
-    }
+{
+    gambar:"gambar/topi.jpg",
+    perkataan:"topi",
+    suku1:"to",
+    suku2:"pi"
+}
 
 ];
 
 
 const semuaSukuKata = [
-    "ba","be","bi","bo",
-    "bu",
-    "ga","ge","gi","go",
-    "ka","ke","ki","ko","ku",
-    "la","li","lo","lu",
-    "ma","me","mi","mo",
-    "pa","pe","pi","po",
-    "ta","te","ti","to","tu",
-    "ya","ye","yi","yu",
-    "ja","je","ji","jo",
-    "ka","ki","ku"
+
+"ba","be","bi","bo","bu",
+"ca","ce","ci","co","cu",
+"da","de","di","do","du",
+"fa","fe","fi","fo","fu",
+"ga","ge","gi","go","gu",
+"ha","he","hi","ho","hu",
+"ja","je","ji","jo","ju",
+"ka","ke","ki","ko","ku",
+"la","le","li","lo","lu",
+"ma","me","mi","mo","mu",
+"na","ne","ni","no","nu",
+"pa","pe","pi","po","pu",
+"ra","re","ri","ro","ru",
+"sa","se","si","so","su",
+"ta","te","ti","to","tu",
+"wa","we","wi","wo","wu",
+"ya","ye","yi","yo","yu"
+
 ];
 
 
-let indeks = 0;
-let indeksGame = 0;
-let skor = 0;
-let nama = "";
-let nyawa = 3;
-let perkataanSemasa = "";
-let hurufDijawab = [];
+/* =====================================================
+   PEMBOLEH UBAH
+===================================================== */
+
+let nombor=0;
+
+let putaranSemasa=0;
+
+let sedangBerpusing=false;
+
+let namaMurid="";
+
+let gameSemasa=0;
+
+let indeksGame=0;
+
+let skor1=0;
+let skor2=0;
+let skor3=0;
+
+let nyawa1=3;
+let nyawa2=3;
+let nyawa3=3;
+
+let urutanGame=[];
+
+let pilihanRoda=0;
+
+let itemPembelajaran=null;
 
 
 /* =====================================================
    AUDIO
-   ===================================================== */
+   Bunyi dijana menggunakan Web Audio API.
+===================================================== */
 
-let audioContext;
+let audioContext=null;
+
 
 function mulaAudio(){
 
-    if(!audioContext){
+    try{
 
-        audioContext =
-            new (
-                window.AudioContext ||
-                window.webkitAudioContext
-            )();
+        if(!audioContext){
 
+            const AudioContext =
+            window.AudioContext ||
+            window.webkitAudioContext;
+
+            if(!AudioContext){
+                return false;
+            }
+
+            audioContext=new AudioContext();
+        }
+
+        if(audioContext.state==="suspended"){
+            audioContext.resume();
+        }
+
+        return true;
+
+    }catch(error){
+
+        console.log("Audio tidak tersedia:",error);
+
+        return false;
     }
-
-    if(audioContext.state === "suspended"){
-        audioContext.resume();
-    }
-
 }
 
 
-function bunyiNada(frekuensi,durasi){
+function bunyiNada(
+    frekuensi,
+    masa,
+    tempoh,
+    jenis="sine",
+    volume=0.08
+){
 
-    mulaAudio();
+    if(!audioContext){
+        return;
+    }
 
-    const oscillator =
-        audioContext.createOscillator();
+    const oscillator=
+    audioContext.createOscillator();
 
-    const gain =
-        audioContext.createGain();
+    const gain=
+    audioContext.createGain();
 
-    oscillator.frequency.value = frekuensi;
+    oscillator.type=jenis;
 
-    oscillator.connect(gain);
-    gain.connect(audioContext.destination);
-
-    gain.gain.setValueAtTime(
-        0.15,
-        audioContext.currentTime
+    oscillator.frequency.setValueAtTime(
+        frekuensi,
+        masa
     );
 
-    oscillator.start();
+    gain.gain.setValueAtTime(
+        0.001,
+        masa
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+        volume,
+        masa+0.02
+    );
 
     gain.gain.exponentialRampToValueAtTime(
         0.001,
-        audioContext.currentTime + durasi
+        masa+tempoh
     );
+
+    oscillator.connect(gain);
+
+    gain.connect(
+        audioContext.destination
+    );
+
+    oscillator.start(masa);
 
     oscillator.stop(
-        audioContext.currentTime + durasi
+        masa+tempoh+0.03
     );
-
 }
 
+
+/* =====================================================
+   BUNYI JAWAPAN BETUL
+===================================================== */
 
 function bunyiBetul(){
 
-    bunyiNada(700,0.15);
+    if(!mulaAudio()){
+        return;
+    }
 
-    setTimeout(()=>{
-        bunyiNada(1000,0.2);
-    },120);
+    const masa=
+    audioContext.currentTime;
 
+    bunyiNada(
+        523.25,
+        masa,
+        0.12,
+        "sine",
+        0.08
+    );
+
+    bunyiNada(
+        659.25,
+        masa+0.10,
+        0.12,
+        "sine",
+        0.08
+    );
+
+    bunyiNada(
+        783.99,
+        masa+0.20,
+        0.18,
+        "sine",
+        0.10
+    );
 }
 
+
+/* =====================================================
+   BUNYI JAWAPAN SALAH
+===================================================== */
 
 function bunyiSalah(){
 
-    bunyiNada(250,0.25);
+    if(!mulaAudio()){
+        return;
+    }
 
+    const masa=
+    audioContext.currentTime;
+
+    bunyiNada(
+        330,
+        masa,
+        0.16,
+        "square",
+        0.045
+    );
+
+    bunyiNada(
+        220,
+        masa+0.14,
+        0.22,
+        "square",
+        0.045
+    );
 }
 
 
+/* =====================================================
+   BUNYI TAHNIAH
+===================================================== */
+
 function bunyiTahniah(){
 
-    bunyiNada(600,0.15);
+    if(!mulaAudio()){
+        return;
+    }
 
-    setTimeout(()=>{
-        bunyiNada(800,0.15);
-    },150);
+    const masa=
+    audioContext.currentTime;
 
-    setTimeout(()=>{
-        bunyiNada(1000,0.3);
-    },300);
+    const not=[
+        523.25,
+        659.25,
+        783.99,
+        1046.50
+    ];
 
+    not.forEach(
+        (frekuensi,index)=>{
+
+            bunyiNada(
+                frekuensi,
+                masa+(index*0.16),
+                0.30,
+                "sine",
+                0.10
+            );
+
+        }
+    );
+
+    bunyiNada(
+        1318.51,
+        masa+0.70,
+        0.45,
+        "sine",
+        0.12
+    );
 }
 
 
 /* =====================================================
    NAVIGASI
-   ===================================================== */
+===================================================== */
 
 function tutupSemua(){
 
     document
     .querySelectorAll("section")
     .forEach(section=>{
-        section.classList.add("sembunyi");
+
+        section.style.display="none";
+
     });
 
 }
@@ -1194,8 +1809,7 @@ function bukaUtama(){
 
     document
     .getElementById("utama")
-    .classList.remove("sembunyi");
-
+    .style.display="block";
 }
 
 
@@ -1205,229 +1819,280 @@ function bukaPengajaran(){
 
     document
     .getElementById("pengajaran")
-    .classList.remove("sembunyi");
+    .style.display="block";
 
-    indeks = 0;
+    nombor=0;
 
     paparAktiviti();
-
 }
 
 
 /* =====================================================
    PENGAJARAN
-   ===================================================== */
+===================================================== */
 
 function paparAktiviti(){
 
-    const item = bahan[indeks];
+    const item=bahan[nombor];
 
-    const ruang =
-        document.getElementById(
-            "aktivitiPengajaran"
-        );
+    document
+    .getElementById("gambarPengajaran")
+    .src=item.gambar;
 
-    ruang.innerHTML = `
+    document
+    .getElementById("perkataanPengajaran")
+    .innerHTML="";
 
-        <img
-            id="gambarPengajaran"
-            src="${item.gambar}"
-            alt="${item.perkataan}"
-        >
+    document
+    .getElementById("langkahPengajaran2")
+    .style.display="none";
 
-        <h2>
-            Baca perkataan:
-            <strong>${item.perkataan}</strong>
-        </h2>
+    document
+    .getElementById("akhirPengajaran")
+    .style.display="none";
 
-        <div
-            id="soalanPengajaran">
-        </div>
+    document
+    .getElementById("statusPertama")
+    .innerHTML="";
 
-    `;
+    document
+    .getElementById("statusKedua")
+    .innerHTML="";
 
-    buatPilihanPertama();
-
+    buatPilihanPertama(item);
 }
 
 
-function buatPilihanPertama(){
+function buatPilihanPertama(item){
 
-    const item = bahan[indeks];
-
+    const container=
     document.getElementById(
-        "soalanPengajaran"
-    ).innerHTML = `
+        "pilihanPertama"
+    );
 
-        <p>
-            Pilih suku kata pertama:
-        </p>
+    container.innerHTML="";
 
-        <div class="pilihan">
+    let pilihan=[
+        item.suku1
+    ];
 
-            ${item.pilihan1.map(suku=>`
+    while(pilihan.length<3){
 
-                <button
-                    onclick="semakPertama('${suku}')">
-                    ${suku}
-                </button>
+        const calon=
+        semuaSukuKata[
+            Math.floor(
+                Math.random()*
+                semuaSukuKata.length
+            )
+        ];
 
-            `).join("")}
+        if(!pilihan.includes(calon)){
+            pilihan.push(calon);
+        }
+    }
 
-        </div>
+    pilihan.sort(
+        ()=>Math.random()-0.5
+    );
 
-        <div
-            class="mesej"
-            id="mesejPertama">
-        </div>
+    pilihan.forEach(suku=>{
 
-    `;
+        const btn=
+        document.createElement("button");
 
+        btn.className=
+        "pilihan-suku";
+
+        btn.innerHTML=suku;
+
+        btn.onclick=()=>{
+            semakPertama(suku);
+        };
+
+        container.appendChild(btn);
+
+    });
 }
 
 
 function semakPertama(jawapan){
 
-    const item = bahan[indeks];
+    const item=bahan[nombor];
 
-    const mesej =
-        document.getElementById(
-            "mesejPertama"
-        );
-
-    if(jawapan === item.suku1){
-
-        mesej.innerHTML =
-            "✅ Betul!";
-
-        mesej.style.color = "green";
+    if(jawapan===item.suku1){
 
         bunyiBetul();
 
-        setTimeout(
-            buatPilihanKedua,
-            700
-        );
+        mercunKecil();
 
-    }
-    else{
+        document
+        .getElementById("statusPertama")
+        .innerHTML=
+        "✅ Betul! Syabas!";
 
-        mesej.innerHTML =
-            "❌ Cuba lagi!";
+        document
+        .querySelectorAll(
+            "#pilihanPertama button"
+        )
+        .forEach(btn=>{
+            btn.disabled=true;
+        });
 
-        mesej.style.color = "red";
+        setTimeout(()=>{
+
+            document
+            .getElementById(
+                "langkahPengajaran2"
+            )
+            .style.display="block";
+
+            buatPilihanKedua(item);
+
+        },700);
+
+    }else{
 
         bunyiSalah();
 
-    }
+        document
+        .getElementById("statusPertama")
+        .innerHTML=
+        "❌ Cuba lagi!";
 
+    }
 }
 
 
-function buatPilihanKedua(){
+function buatPilihanKedua(item){
 
-    const item = bahan[indeks];
-
+    const container=
     document.getElementById(
-        "soalanPengajaran"
-    ).innerHTML = `
+        "pilihanKedua"
+    );
 
-        <p>
-            Pilih suku kata kedua:
-        </p>
+    container.innerHTML="";
 
-        <div class="pilihan">
+    let pilihan=[
+        item.suku2
+    ];
 
-            ${item.pilihan2.map(suku=>`
+    while(pilihan.length<3){
 
-                <button
-                    onclick="semakKedua('${suku}')">
-                    ${suku}
-                </button>
+        const calon=
+        semuaSukuKata[
+            Math.floor(
+                Math.random()*
+                semuaSukuKata.length
+            )
+        ];
 
-            `).join("")}
+        if(!pilihan.includes(calon)){
+            pilihan.push(calon);
+        }
+    }
 
-        </div>
+    pilihan.sort(
+        ()=>Math.random()-0.5
+    );
 
-        <div
-            class="mesej"
-            id="mesejKedua">
-        </div>
+    pilihan.forEach(suku=>{
 
-    `;
+        const btn=
+        document.createElement("button");
 
+        btn.className=
+        "pilihan-suku";
+
+        btn.innerHTML=suku;
+
+        btn.onclick=()=>{
+            semakKedua(suku);
+        };
+
+        container.appendChild(btn);
+
+    });
 }
 
 
 function semakKedua(jawapan){
 
-    const item = bahan[indeks];
+    const item=bahan[nombor];
 
-    const mesej =
-        document.getElementById(
-            "mesejKedua"
-        );
-
-    if(jawapan === item.suku2){
-
-        mesej.innerHTML =
-            `🎉 ${item.perkataan.toUpperCase()} — BETUL!`;
-
-        mesej.style.color = "green";
+    if(jawapan===item.suku2){
 
         bunyiBetul();
 
-        setTimeout(
-            seterusnya,
-            900
-        );
+        mercunKecil();
 
-    }
-    else{
+        document
+        .getElementById("statusKedua")
+        .innerHTML=
+        "✅ Betul! Syabas!";
 
-        mesej.innerHTML =
-            "❌ Cuba lagi!";
+        document
+        .querySelectorAll(
+            "#pilihanKedua button"
+        )
+        .forEach(btn=>{
+            btn.disabled=true;
+        });
 
-        mesej.style.color = "red";
+        setTimeout(()=>{
+
+            document
+            .getElementById(
+                "akhirPengajaran"
+            )
+            .style.display="block";
+
+            document
+            .getElementById(
+                "jawapanPengajaran"
+            )
+            .innerHTML=
+            "✨ "+
+            item.suku1+
+            " + "+
+            item.suku2+
+            " = "+
+            item.perkataan+
+            " ✨";
+
+            bunyiTahniah();
+
+            mercunBesar();
+
+        },700);
+
+    }else{
 
         bunyiSalah();
 
-    }
+        document
+        .getElementById("statusKedua")
+        .innerHTML=
+        "❌ Cuba lagi!";
 
+    }
 }
 
 
 function seterusnya(){
 
-    indeks++;
+    nombor++;
 
-    if(indeks >= bahan.length){
-
-        indeks = 0;
-
-        bukaUtama();
-
-        return;
+    if(nombor>=bahan.length){
+        nombor=0;
     }
 
     paparAktiviti();
-
 }
 
 
 /* =====================================================
    RODA
-   ===================================================== */
-
-const canvas =
-    document.getElementById("rodaCanvas");
-
-const ctx =
-    canvas.getContext("2d");
-
-let sedangPusing = false;
-let sudut = 0;
-
+===================================================== */
 
 function bukaRoda(){
 
@@ -1435,222 +2100,108 @@ function bukaRoda(){
 
     document
     .getElementById("roda")
-    .classList.remove("sembunyi");
-
-    lukisRoda();
-
-}
-
-
-function lukisRoda(){
-
-    const jumlah = bahan.length;
-
-    const tengah = 175;
-
-    const jejari = 170;
-
-    ctx.clearRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
-
-    for(
-        let i=0;
-        i<jumlah;
-        i++
-    ){
-
-        const mula =
-            sudut +
-            i *
-            (2*Math.PI/jumlah);
-
-        const akhir =
-            sudut +
-            (i+1) *
-            (2*Math.PI/jumlah);
-
-        ctx.beginPath();
-
-        ctx.moveTo(
-            tengah,
-            tengah
-        );
-
-        ctx.arc(
-            tengah,
-            tengah,
-            jejari,
-            mula,
-            akhir
-        );
-
-        ctx.closePath();
-
-        ctx.fillStyle =
-            i % 2 === 0
-            ? "#fff3cd"
-            : "#d6f5ff";
-
-        ctx.fill();
-
-        ctx.strokeStyle =
-            "#ffffff";
-
-        ctx.lineWidth = 3;
-
-        ctx.stroke();
-
-        const imej =
-            new Image();
-
-        imej.src =
-            bahan[i].gambar;
-
-        const sudutTengah =
-            (mula + akhir)/2;
-
-        const x =
-            tengah +
-            Math.cos(sudutTengah) *
-            105;
-
-        const y =
-            tengah +
-            Math.sin(sudutTengah) *
-            105;
-
-        imej.onload = ()=>{
-
-            ctx.save();
-
-            ctx.translate(x,y);
-
-            ctx.rotate(sudutTengah);
-
-            ctx.drawImage(
-                imej,
-                -30,
-                -30,
-                60,
-                60
-            );
-
-            ctx.restore();
-
-        };
-
-    }
-
+    .style.display="block";
 }
 
 
 function pusingRoda(){
 
-    if(sedangPusing){
+    if(sedangBerpusing){
         return;
     }
 
-    sedangPusing = true;
-
     mulaAudio();
 
-    const tempoh = 3500;
+    sedangBerpusing=true;
 
-    const mula = performance.now();
+    document
+    .getElementById("butangPusing")
+    .disabled=true;
 
-    const sudutAwal = sudut;
+    const roda=
+    document.getElementById(
+        "rodaBulatan"
+    );
 
-    const tambahan =
-        Math.PI * 2 * 6 +
-        Math.random() * Math.PI * 2;
+    pilihanRoda=
+    Math.floor(
+        Math.random()*
+        bahan.length
+    );
 
-    function animasi(masa){
+    const saizSektor=36;
 
-        const kemajuan =
-            Math.min(
-                (masa-mula)/tempoh,
-                1
-            );
+    const sudutGambar=
+    -90+
+    (pilihanRoda*saizSektor);
 
-        const ease =
-            1 -
-            Math.pow(
-                1-kemajuan,
-                3
-            );
+    const sudutPenunjuk=-90;
 
-        sudut =
-            sudutAwal +
-            tambahan *
-            ease;
+    const sudutSasaran=
+    sudutPenunjuk-
+    sudutGambar;
 
-        lukisRoda();
+    const sudutSemasa=
+    putaranSemasa%360;
 
-        if(kemajuan < 1){
+    let beza=
+    sudutSasaran-
+    sudutSemasa;
 
-            requestAnimationFrame(
-                animasi
-            );
-
-        }
-        else{
-
-            sedangPusing = false;
-
-            tentukanHasil();
-
-        }
-
+    if(beza<0){
+        beza+=360;
     }
 
-    requestAnimationFrame(animasi);
+    const putaran=
+    360*5+
+    beza;
 
-}
+    putaranSemasa+=putaran;
 
+    roda.style.transform=
+    "rotate("+
+    putaranSemasa+
+    "deg)";
 
-function tentukanHasil(){
+    document
+    .querySelectorAll(
+        ".gambar-roda"
+    )
+    .forEach(gambar=>{
 
-    const jumlah = bahan.length;
+        gambar.style.transform=
+        "translate(-50%,-50%) rotate("+
+        (-putaranSemasa)+
+        "deg)";
 
-    const setiap =
-        (2*Math.PI)/jumlah;
+    });
 
-    let sudutNormal =
-        (2*Math.PI -
-        (sudut % (2*Math.PI))) %
-        (2*Math.PI);
+    setTimeout(()=>{
 
-    const indeksTerpilih =
-        Math.floor(
-            sudutNormal / setiap
-        ) % jumlah;
+        sedangBerpusing=false;
 
-    const item =
-        bahan[indeksTerpilih];
+        document
+        .getElementById(
+            "butangPusing"
+        )
+        .disabled=false;
 
-    document.getElementById(
-        "gambarRoda"
-    ).src = item.gambar;
+        bukaPembelajaranRoda(
+            pilihanRoda
+        );
 
-    document.getElementById(
-        "perkataanRoda"
-    ).innerHTML =
-        item.perkataan.toUpperCase();
-
-    bunyiTahniah();
-
+    },5000);
 }
 
 
 /* =====================================================
    PEMBELAJARAN RODA
-   ===================================================== */
+===================================================== */
 
-function bukaPembelajaranRoda(){
+function bukaPembelajaranRoda(indeks){
+
+    itemPembelajaran=
+    bahan[indeks];
 
     tutupSemua();
 
@@ -1658,200 +2209,306 @@ function bukaPembelajaranRoda(){
     .getElementById(
         "pembelajaranRoda"
     )
-    .classList.remove("sembunyi");
+    .style.display="block";
+
+    document
+    .getElementById(
+        "gambarPembelajaran"
+    )
+    .src=
+    itemPembelajaran.gambar;
+
+    document
+    .getElementById(
+        "perkataanPembelajaran"
+    )
+    .innerHTML="";
+
+    document
+    .getElementById(
+        "tajukPembelajaran"
+    )
+    .innerHTML=
+    "🖼️ Lihat gambar dan lengkapkan perkataan.";
+
+    document
+    .getElementById("langkah1")
+    .style.display="block";
+
+    document
+    .getElementById("langkah2")
+    .style.display="none";
+
+    document
+    .getElementById("langkahAkhir")
+    .style.display="none";
+
+    document
+    .getElementById(
+        "statusBelajar1"
+    )
+    .innerHTML="";
+
+    document
+    .getElementById(
+        "statusBelajar2"
+    )
+    .innerHTML="";
 
     buatPilihanBelajar1();
-
 }
 
 
 function buatPilihanBelajar1(){
 
-    const item = bahan[indeks];
-
+    const container=
     document.getElementById(
-        "aktivitiPembelajaranRoda"
-    ).innerHTML = `
+        "pilihanBelajar1"
+    );
 
-        <img
-            src="${item.gambar}"
-            style="
-                width:230px;
-                height:180px;
-                object-fit:contain;
-            "
-        >
+    container.innerHTML="";
 
-        <h2>
-            ${item.perkataan.toUpperCase()}
-        </h2>
+    let pilihan=[
+        itemPembelajaran.suku1
+    ];
 
-        <p>
-            Pilih suku kata pertama:
-        </p>
+    while(pilihan.length<3){
 
-        <div class="pilihan">
+        const calon=
+        semuaSukuKata[
+            Math.floor(
+                Math.random()*
+                semuaSukuKata.length
+            )
+        ];
 
-            ${item.pilihan1.map(s=>`
+        if(!pilihan.includes(calon)){
+            pilihan.push(calon);
+        }
+    }
 
-                <button
-                    onclick="
-                    semakPembelajaran1('${s}')
-                    ">
-                    ${s}
-                </button>
+    pilihan.sort(
+        ()=>Math.random()-0.5
+    );
 
-            `).join("")}
+    pilihan.forEach(suku=>{
 
-        </div>
+        const btn=
+        document.createElement("button");
 
-        <div
-            id="mesejBelajar1"
-            class="mesej">
-        </div>
+        btn.className=
+        "pilihan-suku";
 
-    `;
+        btn.innerHTML=suku;
 
+        btn.onclick=()=>{
+            semakPembelajaran1(
+                suku,
+                btn
+            );
+        };
+
+        container.appendChild(btn);
+
+    });
 }
 
 
-function semakPembelajaran1(jawapan){
+function semakPembelajaran1(
+    jawapan,
+    butang
+){
 
-    const item = bahan[indeks];
-
-    const mesej =
-        document.getElementById(
-            "mesejBelajar1"
-        );
-
-    if(jawapan === item.suku1){
-
-        mesej.innerHTML =
-            "✅ Betul!";
+    if(
+        jawapan===
+        itemPembelajaran.suku1
+    ){
 
         bunyiBetul();
 
-        setTimeout(
-            buatPilihanBelajar2,
-            700
-        );
+        mercunKecil();
 
-    }
-    else{
+        document
+        .getElementById(
+            "statusBelajar1"
+        )
+        .innerHTML=
+        "✅ Betul! Syabas!";
 
-        mesej.innerHTML =
-            "❌ Cuba lagi!";
+        document
+        .querySelectorAll(
+            "#pilihanBelajar1 button"
+        )
+        .forEach(btn=>{
+            btn.disabled=true;
+        });
+
+        setTimeout(()=>{
+
+            document
+            .getElementById(
+                "langkah2"
+            )
+            .style.display="block";
+
+            buatPilihanBelajar2();
+
+        },700);
+
+    }else{
 
         bunyiSalah();
 
+        document
+        .getElementById(
+            "statusBelajar1"
+        )
+        .innerHTML=
+        "❌ Cuba lagi!";
     }
-
 }
 
 
 function buatPilihanBelajar2(){
 
-    const item = bahan[indeks];
-
+    const container=
     document.getElementById(
-        "aktivitiPembelajaranRoda"
-    ).innerHTML = `
+        "pilihanBelajar2"
+    );
 
-        <img
-            src="${item.gambar}"
-            style="
-                width:230px;
-                height:180px;
-                object-fit:contain;
-            "
-        >
+    container.innerHTML="";
 
-        <h2>
-            ${item.suku1}
-            +
-            ?
-        </h2>
+    let pilihan=[
+        itemPembelajaran.suku2
+    ];
 
-        <p>
-            Pilih suku kata kedua:
-        </p>
+    while(pilihan.length<3){
 
-        <div class="pilihan">
+        const calon=
+        semuaSukuKata[
+            Math.floor(
+                Math.random()*
+                semuaSukuKata.length
+            )
+        ];
 
-            ${item.pilihan2.map(s=>`
+        if(!pilihan.includes(calon)){
+            pilihan.push(calon);
+        }
+    }
 
-                <button
-                    onclick="
-                    semakPembelajaran2('${s}')
-                    ">
-                    ${s}
-                </button>
+    pilihan.sort(
+        ()=>Math.random()-0.5
+    );
 
-            `).join("")}
+    pilihan.forEach(suku=>{
 
-        </div>
+        const btn=
+        document.createElement("button");
 
-        <div
-            id="mesejBelajar2"
-            class="mesej">
-        </div>
+        btn.className=
+        "pilihan-suku";
 
-    `;
+        btn.innerHTML=suku;
 
+        btn.onclick=()=>{
+            semakPembelajaran2(
+                suku,
+                btn
+            );
+        };
+
+        container.appendChild(btn);
+
+    });
 }
 
 
-function semakPembelajaran2(jawapan){
+function semakPembelajaran2(
+    jawapan,
+    butang
+){
 
-    const item = bahan[indeks];
+    if(
+        jawapan===
+        itemPembelajaran.suku2
+    ){
 
-    const mesej =
-        document.getElementById(
-            "mesejBelajar2"
-        );
+        bunyiBetul();
 
-    if(jawapan === item.suku2){
+        mercunKecil();
 
-        mesej.innerHTML =
-            `🎉 ${item.perkataan.toUpperCase()} — BETUL!`;
+        document
+        .getElementById(
+            "statusBelajar2"
+        )
+        .innerHTML=
+        "✅ Betul! Syabas!";
 
-        bunyiTahniah();
+        document
+        .querySelectorAll(
+            "#pilihanBelajar2 button"
+        )
+        .forEach(btn=>{
+            btn.disabled=true;
+        });
 
-        setTimeout(
-            selesaiPembelajaranRoda,
-            900
-        );
+        setTimeout(()=>{
 
-    }
-    else{
+            selesaiPembelajaranRoda();
 
-        mesej.innerHTML =
-            "❌ Cuba lagi!";
+        },700);
+
+    }else{
 
         bunyiSalah();
 
+        document
+        .getElementById(
+            "statusBelajar2"
+        )
+        .innerHTML=
+        "❌ Cuba lagi!";
     }
-
 }
 
 
 function selesaiPembelajaranRoda(){
 
-    bukaRoda();
+    document
+    .getElementById(
+        "jawapanPembelajaran"
+    )
+    .innerHTML=
+    "✨ "+
+    itemPembelajaran.suku1+
+    " + "+
+    itemPembelajaran.suku2+
+    " = "+
+    itemPembelajaran.perkataan+
+    " ✨";
 
+    document
+    .getElementById(
+        "langkahAkhir"
+    )
+    .style.display="block";
+
+    bunyiTahniah();
+
+    mercunBesar();
 }
 
 
 function kembaliKeRoda(){
 
     bukaRoda();
-
 }
 
 
 /* =====================================================
    LATIHAN
-   ===================================================== */
+===================================================== */
 
 function bukaLatihan(){
 
@@ -1859,22 +2516,21 @@ function bukaLatihan(){
 
     document
     .getElementById("latihan")
-    .classList.remove("sembunyi");
-
+    .style.display="block";
 }
 
 
 function simpanNama(){
 
-    const input =
-        document.getElementById(
-            "namaMurid"
-        );
+    namaMurid=
+    document
+    .getElementById(
+        "namaMurid"
+    )
+    .value
+    .trim();
 
-    nama =
-        input.value.trim();
-
-    if(nama === ""){
+    if(namaMurid===""){
 
         alert(
             "Sila masukkan nama murid."
@@ -1883,13 +2539,9 @@ function simpanNama(){
         return;
     }
 
-    document.getElementById(
-        "namaPaparan"
-    ).innerHTML =
-        `<h2>Selamat berjaya, ${nama}! 🌟</h2>`;
+    mulaAudio();
 
     bukaPilihGame();
-
 }
 
 
@@ -1901,663 +2553,945 @@ function bukaPilihGame(){
     .getElementById(
         "pilihGame"
     )
-    .classList.remove("sembunyi");
+    .style.display="block";
 
+    document
+    .getElementById(
+        "ucapanNama"
+    )
+    .innerHTML=
+    "Selamat datang, "+
+    namaMurid+
+    "! 😊";
 }
 
 
 /* =====================================================
-   GAME
-   ===================================================== */
+   MULA GAME
+===================================================== */
 
-function mulaGame(nombor){
+function mulaGame(game){
 
-    skor = 0;
+    mulaAudio();
 
-    indeksGame = 0;
+    gameSemasa=game;
+
+    indeksGame=0;
+
+    urutanGame=
+    [...Array(bahan.length).keys()];
+
+    urutanGame.sort(
+        ()=>Math.random()-0.5
+    );
+
+    skor1=0;
+    skor2=0;
+    skor3=0;
+
+    nyawa1=3;
+    nyawa2=3;
+    nyawa3=3;
 
     tutupSemua();
 
-    if(nombor === 1){
+    if(game===1){
 
         document
         .getElementById("game1")
-        .classList.remove("sembunyi");
+        .style.display="block";
 
         paparGame1();
-
     }
 
-    if(nombor === 2){
+    if(game===2){
 
         document
         .getElementById("game2")
-        .classList.remove("sembunyi");
+        .style.display="block";
 
         paparGame2();
-
     }
 
-    if(nombor === 3){
+    if(game===3){
 
         document
         .getElementById("game3")
-        .classList.remove("sembunyi");
+        .style.display="block";
 
         paparGame3();
-
     }
-
 }
 
 
 /* =====================================================
    GAME 1
-   ===================================================== */
+===================================================== */
 
 function paparGame1(){
 
-    const item =
-        bahan[indeksGame];
-
-    document.getElementById(
-        "game1Gambar"
-    ).src = item.gambar;
-
-    document.getElementById(
-        "drop1"
-    ).innerHTML = "";
-
-    document.getElementById(
-        "drop2"
-    ).innerHTML = "";
-
-    document.getElementById(
-        "mesejGame1"
-    ).innerHTML = "";
-
-    const pilihan =
-        [
-            item.suku1,
-            item.suku2,
-            ...item.pilihan1,
-            ...item.pilihan2
-        ];
-
-    const unik =
-        [...new Set(pilihan)];
-
-    unik.sort(
-        ()=>Math.random()-0.5
-    );
-
-    document.getElementById(
-        "pilihanSuku"
-    ).innerHTML =
-        unik.map(s=>`
-
-            <button
-                onclick="dropSuku('${s}')">
-                ${s}
-            </button>
-
-        `).join("");
-
-}
-
-
-function dropSuku(suku){
-
-    const d1 =
-        document.getElementById(
-            "drop1"
-        );
-
-    const d2 =
-        document.getElementById(
-            "drop2"
-        );
-
-    if(d1.innerHTML === ""){
-
-        d1.innerHTML = suku;
-
-    }
-    else if(d2.innerHTML === ""){
-
-        d2.innerHTML = suku;
-
-    }
-
-}
-
-
-function semakGame1(){
-
-    const item =
-        bahan[indeksGame];
-
-    const d1 =
-        document.getElementById(
-            "drop1"
-        ).innerText;
-
-    const d2 =
-        document.getElementById(
-            "drop2"
-        ).innerText;
-
-    const mesej =
-        document.getElementById(
-            "mesejGame1"
-        );
-
     if(
-        d1 === item.suku1 &&
-        d2 === item.suku2
+        indeksGame>=
+        urutanGame.length
     ){
 
-        mesej.innerHTML =
-            "🎉 BETUL!";
+        tamatGame(1);
 
-        mesej.style.color =
-            "green";
-
-        skor++;
-
-        bunyiBetul();
-
-        setTimeout(()=>{
-
-            indeksGame++;
-
-            if(
-                indeksGame >= bahan.length
-            ){
-
-                tamatGame();
-
-            }
-            else{
-
-                paparGame1();
-
-            }
-
-        },800);
-
-    }
-    else{
-
-        mesej.innerHTML =
-            "❌ Susunan belum betul. Cuba lagi!";
-
-        mesej.style.color =
-            "red";
-
-        bunyiSalah();
-
+        return;
     }
 
-}
-
-
-/* =====================================================
-   GAME 2
-   ===================================================== */
-
-function paparGame2(){
-
-    const item =
-        bahan[indeksGame];
-
-    document.getElementById(
-        "game2Gambar"
-    ).src = item.gambar;
-
-    document.getElementById(
-        "mesejGame2"
-    ).innerHTML = "";
-
-    let pilihan = [
-        item.perkataan
+    const item=
+    bahan[
+        urutanGame[indeksGame]
     ];
 
-    while(
-        pilihan.length < 4
-    ){
+    document
+    .getElementById(
+        "gambarGame1"
+    )
+    .src=item.gambar;
 
-        const rawak =
-            bahan[
-                Math.floor(
-                    Math.random() *
-                    bahan.length
-                )
-            ].perkataan;
+    document
+    .getElementById(
+        "perkataanGame1"
+    )
+    .innerHTML=
+    item.suku1+
+    " + ?";
 
-        if(
-            !pilihan.includes(rawak)
-        ){
+    document
+    .getElementById(
+        "drop1"
+    )
+    .innerHTML="?";
 
-            pilihan.push(rawak);
+    document
+    .getElementById(
+        "progressGame1"
+    )
+    .innerHTML=
+    "Soalan "+
+    (indeksGame+1)+
+    " / "+
+    urutanGame.length;
 
+    document
+    .getElementById(
+        "skorGame1"
+    )
+    .innerHTML=
+    "Skor: "+
+    skor1;
+
+    paparkanNyawa(
+        "nyawaGame1",
+        nyawa1
+    );
+
+    const container=
+    document.getElementById(
+        "pilihanGame1"
+    );
+
+    container.innerHTML="";
+
+    let pilihan=[
+        item.suku2
+    ];
+
+    while(pilihan.length<3){
+
+        const calon=
+        semuaSukuKata[
+            Math.floor(
+                Math.random()*
+                semuaSukuKata.length
+            )
+        ];
+
+        if(!pilihan.includes(calon)){
+            pilihan.push(calon);
         }
-
     }
 
     pilihan.sort(
         ()=>Math.random()-0.5
     );
 
-    document.getElementById(
-        "pilihanPerkataan"
-    ).innerHTML =
-        pilihan.map(p=>`
+    pilihan.forEach(suku=>{
 
-            <button
-                onclick="
-                dropPerkataan('${p}')
-                ">
-                ${p}
-            </button>
+        const div=
+        document.createElement("div");
 
-        `).join("");
+        div.className=
+        "game-suku";
 
+        div.innerHTML=suku;
+
+        div.draggable=true;
+
+        div.ondragstart=event=>{
+
+            event.dataTransfer
+            .setData(
+                "text/plain",
+                suku
+            );
+        };
+
+        container.appendChild(div);
+
+    });
 }
 
 
-function dropPerkataan(jawapan){
+function dropSuku(event){
 
-    const item =
-        bahan[indeksGame];
+    event.preventDefault();
 
-    const mesej =
-        document.getElementById(
-            "mesejGame2"
-        );
+    const jawapan=
+    event.dataTransfer
+    .getData("text/plain");
 
-    if(
-        jawapan === item.perkataan
-    ){
+    semakGame1(jawapan);
+}
 
-        mesej.innerHTML =
-            "🎉 BETUL!";
 
-        mesej.style.color =
-            "green";
+function semakGame1(jawapan){
 
-        skor++;
+    const item=
+    bahan[
+        urutanGame[indeksGame]
+    ];
+
+    if(jawapan===item.suku2){
 
         bunyiBetul();
+
+        mercunKecil();
+
+        skor1+=10;
+
+        document
+        .getElementById(
+            "drop1"
+        )
+        .innerHTML=jawapan;
+
+        document
+        .getElementById(
+            "statusGame1"
+        )
+        .innerHTML=
+        "✅ Betul! +10 markah";
 
         setTimeout(()=>{
 
             indeksGame++;
 
-            if(
-                indeksGame >= bahan.length
-            ){
+            document
+            .getElementById(
+                "statusGame1"
+            )
+            .innerHTML="";
 
-                tamatGame();
+            paparGame1();
 
-            }
-            else{
+        },700);
 
-                paparGame2();
-
-            }
-
-        },800);
-
-    }
-    else{
-
-        mesej.innerHTML =
-            "❌ Cuba lagi!";
-
-        mesej.style.color =
-            "red";
+    }else{
 
         bunyiSalah();
 
-    }
+        nyawa1--;
 
+        paparkanNyawa(
+            "nyawaGame1",
+            nyawa1
+        );
+
+        document
+        .getElementById(
+            "statusGame1"
+        )
+        .innerHTML=
+        "❌ Salah! Cuba lagi.";
+
+        if(nyawa1<=0){
+
+            setTimeout(()=>{
+                tamatGame(1);
+            },700);
+
+        }
+    }
 }
 
 
-function semakGame2(){
+/* =====================================================
+   GAME 2
+===================================================== */
 
+function paparGame2(){
+
+    if(
+        indeksGame>=
+        urutanGame.length
+    ){
+
+        tamatGame(2);
+
+        return;
+    }
+
+    const item=
+    bahan[
+        urutanGame[indeksGame]
+    ];
+
+    document
+    .getElementById(
+        "gambarGame2"
+    )
+    .src=item.gambar;
+
+    document
+    .getElementById(
+        "kotakJawapan2"
+    )
+    .innerHTML=
+    "Seret ke sini";
+
+    document
+    .getElementById(
+        "progressGame2"
+    )
+    .innerHTML=
+    "Soalan "+
+    (indeksGame+1)+
+    " / "+
+    urutanGame.length;
+
+    document
+    .getElementById(
+        "skorGame2"
+    )
+    .innerHTML=
+    "Skor: "+
+    skor2;
+
+    paparkanNyawa(
+        "nyawaGame2",
+        nyawa2
+    );
+
+    const container=
+    document.getElementById(
+        "pilihanGame2"
+    );
+
+    container.innerHTML="";
+
+    let pilihan=[
+        item.perkataan
+    ];
+
+    while(pilihan.length<3){
+
+        const calon=
+        bahan[
+            Math.floor(
+                Math.random()*
+                bahan.length
+            )
+        ].perkataan;
+
+        if(!pilihan.includes(calon)){
+            pilihan.push(calon);
+        }
+    }
+
+    pilihan.sort(
+        ()=>Math.random()-0.5
+    );
+
+    pilihan.forEach(perkataan=>{
+
+        const div=
+        document.createElement("div");
+
+        div.className=
+        "game-perkataan";
+
+        div.innerHTML=
+        perkataan;
+
+        div.draggable=true;
+
+        div.ondragstart=event=>{
+
+            event.dataTransfer
+            .setData(
+                "text/plain",
+                perkataan
+            );
+        };
+
+        container.appendChild(div);
+
+    });
+}
+
+
+function dropPerkataan(event){
+
+    event.preventDefault();
+
+    const jawapan=
+    event.dataTransfer
+    .getData("text/plain");
+
+    semakGame2(jawapan);
+}
+
+
+function semakGame2(jawapan){
+
+    const item=
+    bahan[
+        urutanGame[indeksGame]
+    ];
+
+    if(jawapan===item.perkataan){
+
+        bunyiBetul();
+
+        mercunKecil();
+
+        skor2+=10;
+
+        document
+        .getElementById(
+            "kotakJawapan2"
+        )
+        .innerHTML=
+        jawapan;
+
+        document
+        .getElementById(
+            "statusGame2"
+        )
+        .innerHTML=
+        "✅ Betul! +10 markah";
+
+        setTimeout(()=>{
+
+            indeksGame++;
+
+            document
+            .getElementById(
+                "statusGame2"
+            )
+            .innerHTML="";
+
+            paparGame2();
+
+        },700);
+
+    }else{
+
+        bunyiSalah();
+
+        nyawa2--;
+
+        paparkanNyawa(
+            "nyawaGame2",
+            nyawa2
+        );
+
+        document
+        .getElementById(
+            "statusGame2"
+        )
+        .innerHTML=
+        "❌ Salah! Cuba lagi.";
+
+        if(nyawa2<=0){
+
+            setTimeout(()=>{
+                tamatGame(2);
+            },700);
+
+        }
+    }
 }
 
 
 /* =====================================================
    GAME 3
-   ===================================================== */
+===================================================== */
 
 function paparGame3(){
 
-    const item =
-        bahan[indeksGame];
-
-    perkataanSemasa =
-        item.perkataan;
-
-    hurufDijawab = [];
-
-    nyawa = 3;
-
-    document.getElementById(
-        "game3Gambar"
-    ).src = item.gambar;
-
-    binaKeyboard();
-
-    paparanNyawa();
-
-    paparkanPerkataan();
-
-}
-
-
-function paparkanPerkataan(){
-
-    let paparan = "";
-
-    for(
-        let huruf of perkataanSemasa
+    if(
+        indeksGame>=
+        urutanGame.length
     ){
 
-        if(
-            hurufDijawab.includes(huruf)
-        ){
+        tamatGame(3);
 
-            paparan +=
-                huruf.toUpperCase() +
-                " ";
-
-        }
-        else{
-
-            paparan += "_ ";
-
-        }
-
+        return;
     }
 
-    document.getElementById(
-        "paparanPerkataan"
-    ).innerText =
-        paparan;
+    const item=
+    bahan[
+        urutanGame[indeksGame]
+    ];
 
+    document
+    .getElementById(
+        "gambarGame3"
+    )
+    .src=item.gambar;
+
+    document
+    .getElementById(
+        "jawapanGame3"
+    )
+    .innerHTML="";
+
+    document
+    .getElementById(
+        "progressGame3"
+    )
+    .innerHTML=
+    "Soalan "+
+    (indeksGame+1)+
+    " / "+
+    urutanGame.length;
+
+    document
+    .getElementById(
+        "skorGame3"
+    )
+    .innerHTML=
+    "Skor: "+
+    skor3;
+
+    paparkanNyawa(
+        "nyawaGame3",
+        nyawa3
+    );
+
+    document
+    .getElementById(
+        "statusGame3"
+    )
+    .innerHTML="";
+
+    binaKeyboard();
 }
 
 
 function binaKeyboard(){
 
-    const huruf =
-        "abcdefghijklmnopqrstuvwxyz"
-        .split("");
-
+    const container=
     document.getElementById(
-        "keyboard"
-    ).innerHTML =
-        huruf.map(h=>`
+        "keyboardGame3"
+    );
 
-            <button
-                onclick="
-                tekanHuruf('${h}',this)
-                ">
-                ${h.toUpperCase()}
-            </button>
+    container.innerHTML="";
 
-        `).join("");
+    const huruf=
+    "abcdefghijklmnopqrstuvwxyz";
 
+    huruf.split("")
+    .forEach(h=>{
+
+        const btn=
+        document.createElement("button");
+
+        btn.className=
+        "huruf";
+
+        btn.innerHTML=h;
+
+        btn.onclick=()=>{
+            tekanHuruf(h);
+        };
+
+        container.appendChild(btn);
+
+    });
 }
 
 
-function tekanHuruf(huruf,butang){
+function tekanHuruf(huruf){
 
-    if(
-        hurufDijawab.includes(huruf)
-    ){
-        return;
-    }
+    const item=
+    bahan[
+        urutanGame[indeksGame]
+    ];
 
-    hurufDijawab.push(huruf);
+    const jawapanSemasa=
+    document
+    .getElementById(
+        "jawapanGame3"
+    )
+    .innerText;
 
-    butang.disabled = true;
+    const sasaran=
+    item.perkataan;
 
-    if(
-        perkataanSemasa.includes(huruf)
-    ){
+    const hurufSeterusnya=
+    sasaran[
+        jawapanSemasa.length
+    ];
+
+
+    if(huruf===hurufSeterusnya){
 
         bunyiBetul();
 
-    }
-    else{
+        document
+        .getElementById(
+            "jawapanGame3"
+        )
+        .innerHTML=
+        jawapanSemasa+
+        huruf;
 
-        nyawa--;
+
+        if(
+            jawapanSemasa.length+1===
+            sasaran.length
+        ){
+
+            skor3+=10;
+
+            mercunKecil();
+
+            document
+            .getElementById(
+                "statusGame3"
+            )
+            .innerHTML=
+            "🎉 Betul! +10 markah";
+
+            setTimeout(()=>{
+
+                indeksGame++;
+
+                document
+                .getElementById(
+                    "statusGame3"
+                )
+                .innerHTML="";
+
+                paparGame3();
+
+            },700);
+        }
+
+    }else{
 
         bunyiSalah();
 
+        nyawa3--;
+
+        paparkanNyawa(
+            "nyawaGame3",
+            nyawa3
+        );
+
+        document
+        .getElementById(
+            "statusGame3"
+        )
+        .innerHTML=
+        "❌ Cuba lagi!";
+
+        if(nyawa3<=0){
+
+            setTimeout(()=>{
+                tamatGame(3);
+            },700);
+
+        }
     }
-
-    paparkanPerkataan();
-
-    paparkanNyawa();
-
-    if(
-        [...perkataanSemasa]
-        .every(h=>hurufDijawab.includes(h))
-    ){
-
-        skor++;
-
-        bunyiTahniah();
-
-        setTimeout(()=>{
-
-            indeksGame++;
-
-            if(
-                indeksGame >= bahan.length
-            ){
-
-                tamatGame();
-
-            }
-            else{
-
-                paparGame3();
-
-            }
-
-        },900);
-
-    }
-    else if(nyawa <= 0){
-
-        setTimeout(()=>{
-
-            indeksGame++;
-
-            if(
-                indeksGame >= bahan.length
-            ){
-
-                tamatGame();
-
-            }
-            else{
-
-                paparGame3();
-
-            }
-
-        },1000);
-
-    }
-
 }
 
 
-function paparkanNyawa(){
+/* =====================================================
+   NYAWA
+===================================================== */
 
-    document.getElementById(
-        "nyawa"
-    ).innerText =
-        "❤️".repeat(nyawa);
+function paparkanNyawa(
+    id,
+    nyawa
+){
 
+    let simbol="";
+
+    for(
+        let i=0;
+        i<nyawa;
+        i++
+    ){
+
+        simbol+="❤️";
+    }
+
+    document
+    .getElementById(id)
+    .innerHTML=
+    simbol;
 }
 
 
 /* =====================================================
    TAMAT GAME
-   ===================================================== */
+===================================================== */
 
-function tamatGame(){
+function tamatGame(game){
+
+    let skor=0;
+
+    if(game===1){
+        skor=skor1;
+    }
+
+    if(game===2){
+        skor=skor2;
+    }
+
+    if(game===3){
+        skor=skor3;
+    }
 
     tutupSemua();
 
     document
-    .getElementById("tamat")
-    .classList.remove("sembunyi");
+    .getElementById(
+        "tamat"
+    )
+    .style.display="block";
 
-    document.getElementById(
-        "markahAkhir"
-    ).innerHTML = `
+    document
+    .getElementById(
+        "namaTamat"
+    )
+    .innerHTML=
+    "Tahniah, "+
+    namaMurid+
+    "! 🎉";
 
-        ${nama || "Murid"} mendapat
-
-        <br><br>
-
-        ${skor} / ${bahan.length}
-
-        <br><br>
-
-        🌟 Syabas! Teruskan usaha! 🌟
-
-    `;
+    document
+    .getElementById(
+        "skorTamat"
+    )
+    .innerHTML=
+    "🏆 "+
+    skor+
+    " MARKAH";
 
     bunyiTahniah();
 
     mercunBesar();
-
 }
 
 
 /* =====================================================
-   BUNGA API
-   ===================================================== */
+   BUNGA API KECIL
+===================================================== */
 
 function mercunKecil(){
 
-    ciptaBungaApi();
-
-}
-
-
-function mercunBesar(){
-
-    for(
-        let i=0;
-        i<8;
-        i++
-    ){
-
-        setTimeout(
-            ciptaBungaApi,
-            i*250
-        );
-
-    }
-
-}
-
-
-function ciptaBungaApi(){
-
-    const ruang =
-        document.getElementById(
-            "fireworks"
-        );
-
-    const tengahX =
-        Math.random()*100;
-
-    const tengahY =
-        20 +
-        Math.random()*60;
-
-    for(
-        let i=0;
-        i<25;
-        i++
-    ){
-
-        const bunga =
-            document.createElement("div");
-
-        bunga.className =
-            "bunga-api";
-
-        bunga.style.left =
-            tengahX + "%";
-
-        bunga.style.top =
-            tengahY + "%";
-
-        const sudut =
-            Math.random() *
-            Math.PI *
-            2;
-
-        const jarak =
-            50 +
-            Math.random()*100;
-
-        bunga.style.setProperty(
-            "--x",
-            Math.cos(sudut)*jarak + "px"
-        );
-
-        bunga.style.setProperty(
-            "--y",
-            Math.sin(sudut)*jarak + "px"
-        );
-
-        bunga.style.background =
-            [
-                "#ff0000",
-                "#00aaff",
-                "#ffcc00",
-                "#00cc66",
-                "#ff66cc",
-                "#9933ff"
-            ][
-                Math.floor(
-                    Math.random()*6
-                )
-            ];
-
-        ruang.appendChild(
-            bunga
-        );
-
-        setTimeout(()=>{
-
-            bunga.remove();
-
-        },1600);
-
-    }
-
+    ciptaBungaApi(
+        12,
+        false
+    );
 }
 
 
 /* =====================================================
-   MULA
-   ===================================================== */
+   BUNGA API BESAR
+===================================================== */
+
+function mercunBesar(){
+
+    ciptaBungaApi(
+        45,
+        true
+    );
+
+    setTimeout(()=>{
+
+        ciptaBungaApi(
+            35,
+            true
+        );
+
+    },500);
+
+    setTimeout(()=>{
+
+        ciptaBungaApi(
+            35,
+            true
+        );
+
+    },1000);
+}
+
+
+/* =====================================================
+   CIPTA BUNGA API
+===================================================== */
+
+function ciptaBungaApi(
+    jumlah,
+    besar
+){
+
+    const container=
+    document.getElementById(
+        "fireworks"
+    );
+
+    container.style.display=
+    "block";
+
+
+    const warna=[
+
+        "#ff3838",
+        "#ff9f1a",
+        "#ffe600",
+        "#2ed573",
+        "#1e90ff",
+        "#a55eea",
+        "#ff4dff",
+        "#00d2d3"
+
+    ];
+
+
+    const pusatX=
+    15+
+    Math.random()*70;
+
+    const pusatY=
+    15+
+    Math.random()*60;
+
+
+    for(
+        let i=0;
+        i<jumlah;
+        i++
+    ){
+
+        const f=
+        document.createElement(
+            "div"
+        );
+
+        f.className=
+        "firework";
+
+        if(besar){
+            f.classList.add("besar");
+        }
+
+
+        const sudut=
+        Math.random()*
+        Math.PI*
+        2;
+
+        const jarak=
+        besar
+        ?
+        100+
+        Math.random()*180
+        :
+        60+
+        Math.random()*100;
+
+
+        const x=
+        Math.cos(sudut)*
+        jarak;
+
+        const y=
+        Math.sin(sudut)*
+        jarak;
+
+
+        f.style.left=
+        pusatX+"%";
+
+        f.style.top=
+        pusatY+"%";
+
+
+        f.style.setProperty(
+            "--x",
+            x+"px"
+        );
+
+        f.style.setProperty(
+            "--y",
+            y+"px"
+        );
+
+
+        const warnaDipilih=
+        warna[
+            Math.floor(
+                Math.random()*
+                warna.length
+            )
+        ];
+
+
+        f.style.background=
+        warnaDipilih;
+
+        f.style.color=
+        warnaDipilih;
+
+
+        container.appendChild(f);
+
+
+        setTimeout(()=>{
+
+            f.remove();
+
+        },2300);
+
+    }
+
+
+    setTimeout(()=>{
+
+        if(
+            container.children.length===0
+        ){
+
+            container.style.display=
+            "none";
+        }
+
+    },2500);
+}
+
+
+/* =====================================================
+   MULAKAN APLIKASI
+===================================================== */
 
 bukaUtama();
 
@@ -2565,4 +3499,4 @@ bukaUtama();
 
 </body>
 </html>
-```
+
