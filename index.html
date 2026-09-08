@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="ms">
 <head>
@@ -9,14 +9,59 @@
 
 <style>
 
+/* =====================================================
+   COMIC SANS MS - FONT TEMPATAN
+===================================================== */
+
+@font-face{
+    font-family:"ComicSansLocal";
+    src:url("comic.ttf") format("truetype");
+    font-weight:400;
+    font-style:normal;
+    font-display:swap;
+}
+
+@font-face{
+    font-family:"ComicSansLocal";
+    src:url("comicbd.ttf") format("truetype");
+    font-weight:700;
+    font-style:normal;
+    font-display:swap;
+}
+
+@font-face{
+    font-family:"ComicSansLocal";
+    src:url("comici.ttf") format("truetype");
+    font-weight:400;
+    font-style:italic;
+    font-display:swap;
+}
+
+@font-face{
+    font-family:"ComicSansLocal";
+    src:url("comicz.ttf") format("truetype");
+    font-weight:700;
+    font-style:italic;
+    font-display:swap;
+}
+
+
+/* =====================================================
+   ASAS
+===================================================== */
+
 *{
     box-sizing:border-box;
+}
+
+html,
+body{
+    font-family:"ComicSansLocal","Comic Sans MS",cursive,sans-serif;
 }
 
 body{
     margin:0;
     padding:20px;
-    font-family:"Comic Sans MS", cursive, sans-serif;
     text-align:center;
     min-height:100vh;
 
@@ -33,6 +78,7 @@ body{
 }
 
 h1{
+    font-family:"ComicSansLocal","Comic Sans MS",cursive,sans-serif;
     font-size:40px;
     margin:10px 0;
     color:#173f5f;
@@ -40,16 +86,24 @@ h1{
 }
 
 h2{
+    font-family:"ComicSansLocal","Comic Sans MS",cursive,sans-serif;
     font-size:30px;
     color:#173f5f;
 }
 
 h3{
+    font-family:"ComicSansLocal","Comic Sans MS",cursive,sans-serif;
     font-size:24px;
 }
 
 p{
+    font-family:"ComicSansLocal","Comic Sans MS",cursive,sans-serif;
     font-size:20px;
+}
+
+button,
+input{
+    font-family:"ComicSansLocal","Comic Sans MS",cursive,sans-serif;
 }
 
 .box{
@@ -66,12 +120,12 @@ p{
     display:none;
 }
 
-/* =========================
+
+/* =====================================================
    BUTANG
-========================= */
+===================================================== */
 
 button{
-    font-family:"Comic Sans MS", cursive, sans-serif;
     cursor:pointer;
     border:none;
 }
@@ -145,9 +199,10 @@ button{
     font-weight:bold;
 }
 
-/* =========================
+
+/* =====================================================
    PEMBELAJARAN
-========================= */
+===================================================== */
 
 .gambar-pembelajaran{
     width:220px;
@@ -222,9 +277,10 @@ button{
     background:#fff4b8;
 }
 
-/* =========================
+
+/* =====================================================
    RODA
-========================= */
+===================================================== */
 
 .roda-wrapper{
     position:relative;
@@ -398,16 +454,16 @@ button{
     cursor:not-allowed;
 }
 
-/* =========================
+
+/* =====================================================
    LATIHAN
-========================= */
+===================================================== */
 
 .input-nama{
     width:90%;
     max-width:450px;
     padding:15px;
 
-    font-family:"Comic Sans MS", cursive;
     font-size:22px;
 
     border:3px solid #74b9ff;
@@ -519,7 +575,6 @@ button{
     background:#74b9ff;
     color:white;
 
-    font-family:"Comic Sans MS", cursive;
     font-size:22px;
     font-weight:bold;
 }
@@ -535,9 +590,10 @@ button{
     margin:15px;
 }
 
-/* =========================
+
+/* =====================================================
    BUNGA API
-========================= */
+===================================================== */
 
 #fireworks{
     position:fixed;
@@ -627,9 +683,10 @@ button{
     }
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+
+/* =====================================================
+   RESPONSIVE TELEFON
+===================================================== */
 
 @media(max-width:600px){
 
@@ -705,9 +762,10 @@ button{
 
 <body>
 
-<!-- =========================
+
+<!-- =====================================================
      MENU UTAMA
-========================= -->
+===================================================== -->
 
 <section id="utama">
 
@@ -748,9 +806,9 @@ onclick="bukaLatihan()">
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      PENGAJARAN
-========================= -->
+===================================================== -->
 
 <section id="pengajaran" class="sembunyi">
 
@@ -860,9 +918,9 @@ onclick="bukaUtama()">
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      RODA
-========================= -->
+===================================================== -->
 
 <section id="roda" class="sembunyi">
 
@@ -961,9 +1019,9 @@ onclick="bukaUtama()">
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      PEMBELAJARAN RODA
-========================= -->
+===================================================== -->
 
 <section
 id="pembelajaranRoda"
@@ -1070,9 +1128,9 @@ onclick="kembaliKeRoda()">
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      LATIHAN
-========================= -->
+===================================================== -->
 
 <section
 id="latihan"
@@ -1120,9 +1178,9 @@ onclick="bukaUtama()">
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      PILIH GAME
-========================= -->
+===================================================== -->
 
 <section
 id="pilihGame"
@@ -1184,9 +1242,9 @@ onclick="bukaUtama()">
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      GAME 1
-========================= -->
+===================================================== -->
 
 <section
 id="game1"
@@ -1257,9 +1315,9 @@ class="status-pembelajaran">
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      GAME 2
-========================= -->
+===================================================== -->
 
 <section
 id="game2"
@@ -1325,9 +1383,9 @@ class="status-pembelajaran">
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      GAME 3
-========================= -->
+===================================================== -->
 
 <section
 id="game3"
@@ -1388,9 +1446,9 @@ class="status-pembelajaran">
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      TAMAT
-========================= -->
+===================================================== -->
 
 <section
 id="tamat"
@@ -1436,9 +1494,9 @@ onclick="bukaUtama()">
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      BUNGA API
-========================= -->
+===================================================== -->
 
 <div id="fireworks"></div>
 
@@ -1552,15 +1610,10 @@ const semuaSukuKata = [
 ===================================================== */
 
 let nombor=0;
-
 let putaranSemasa=0;
-
 let sedangBerpusing=false;
-
 let namaMurid="";
-
 let gameSemasa=0;
-
 let indeksGame=0;
 
 let skor1=0;
@@ -1572,19 +1625,15 @@ let nyawa2=3;
 let nyawa3=3;
 
 let urutanGame=[];
-
 let pilihanRoda=0;
-
 let itemPembelajaran=null;
 
 
 /* =====================================================
    AUDIO
-   Bunyi dijana menggunakan Web Audio API.
 ===================================================== */
 
 let audioContext=null;
-
 
 function mulaAudio(){
 
@@ -1659,10 +1708,7 @@ function bunyiNada(
     );
 
     oscillator.connect(gain);
-
-    gain.connect(
-        audioContext.destination
-    );
+    gain.connect(audioContext.destination);
 
     oscillator.start(masa);
 
@@ -1671,10 +1717,6 @@ function bunyiNada(
     );
 }
 
-
-/* =====================================================
-   BUNYI JAWAPAN BETUL
-===================================================== */
 
 function bunyiBetul(){
 
@@ -1711,10 +1753,6 @@ function bunyiBetul(){
 }
 
 
-/* =====================================================
-   BUNYI JAWAPAN SALAH
-===================================================== */
-
 function bunyiSalah(){
 
     if(!mulaAudio()){
@@ -1741,10 +1779,6 @@ function bunyiSalah(){
     );
 }
 
-
-/* =====================================================
-   BUNYI TAHNIAH
-===================================================== */
 
 function bunyiTahniah(){
 
@@ -1799,7 +1833,6 @@ function tutupSemua(){
         section.style.display="none";
 
     });
-
 }
 
 
@@ -1922,7 +1955,6 @@ function semakPertama(jawapan){
     if(jawapan===item.suku1){
 
         bunyiBetul();
-
         mercunKecil();
 
         document
@@ -1958,7 +1990,6 @@ function semakPertama(jawapan){
         .getElementById("statusPertama")
         .innerHTML=
         "❌ Cuba lagi!";
-
     }
 }
 
@@ -2022,7 +2053,6 @@ function semakKedua(jawapan){
     if(jawapan===item.suku2){
 
         bunyiBetul();
-
         mercunKecil();
 
         document
@@ -2060,7 +2090,6 @@ function semakKedua(jawapan){
             " ✨";
 
             bunyiTahniah();
-
             mercunBesar();
 
         },700);
@@ -2073,7 +2102,6 @@ function semakKedua(jawapan){
         .getElementById("statusKedua")
         .innerHTML=
         "❌ Cuba lagi!";
-
     }
 }
 
@@ -2325,7 +2353,6 @@ function semakPembelajaran1(
     ){
 
         bunyiBetul();
-
         mercunKecil();
 
         document
@@ -2435,7 +2462,6 @@ function semakPembelajaran2(
     ){
 
         bunyiBetul();
-
         mercunKecil();
 
         document
@@ -2767,7 +2793,6 @@ function semakGame1(jawapan){
     if(jawapan===item.suku2){
 
         bunyiBetul();
-
         mercunKecil();
 
         skor1+=10;
@@ -2965,7 +2990,6 @@ function semakGame2(jawapan){
     if(jawapan===item.perkataan){
 
         bunyiBetul();
-
         mercunKecil();
 
         skor2+=10;
@@ -3499,4 +3523,4 @@ bukaUtama();
 
 </body>
 </html>
-
+```
